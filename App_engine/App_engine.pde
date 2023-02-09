@@ -16,7 +16,7 @@ AudioPlayer[] songs = new AudioPlayer[1]; //creates a "Play list" variable holdi
 //
 void setup() {
   //
-  minim = new Minim (this); //loads data from directory, loadFile should also load from 
+  minim = new Minim (this); //loads data from directory, loadFile should also load from project folder, like loadImage
   //
   File anyDirectory = new File(path); //Used when exported
   println ("Exported Directory", anyDirectory);
@@ -49,7 +49,7 @@ void setup() {
         }
       }
     }
-  } //Catch when NULL, not exported
+  } //Catch when Pathway NULL, not exported
   songs[0].loop(0); //Change the index manually
 }//End setup
 //
