@@ -22,6 +22,7 @@ void setup() {
 void draw() {
   rect( buttonX1, buttonY1, buttonWidth, buttonHeight );
   rect( buttonX2, buttonY2, buttonWidth, buttonHeight );
+  
 }//End draw
 //
 void keyPressed() {}//End keyPressed
