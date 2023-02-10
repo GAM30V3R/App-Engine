@@ -4,7 +4,8 @@ float  pauseX1, pauseY1, pauseWidth, pauseHeight,  pauseX2, pauseY2, pauseWidth,
 void setup() {
   size(); //width, height 
   //population, visual data
-  pauseX1 = width;
+  float centerX = width * 1/2
+  pauseX1 = centerX - pauseWidth*1/2;
   pauseY1 = height;
   pauseX2 = width;
   pauseY2 = height;
