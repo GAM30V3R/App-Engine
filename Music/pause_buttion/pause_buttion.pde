@@ -1,34 +1,35 @@
 //Global Variables
-float buttonX1, buttonY1, buttonX2, buttonY2, buttonWidth, buttonHeight;
-float buttonScaleWidth, buttonScaleHeight ;
 //
 void setup() {
   //Landscape (portrait, square)
-  size(500, 500); //width, height
+  size(600, 600); //width, height
   //fullScreen(); //displayWidth, displayHeight
   //Population, visual data
-  float MusicButtonDrawX = width * 1/2;
-  float MusicButtonDrawY = height * 5/10;
-  buttonScaleWidth = 1.0/20.0 ;
-  buttonScaleHeight = 1.0/5.0;
-  buttonWidth = width * buttonScaleWidth ; 
-  buttonX1 = MusicButtonDrawX - buttonWidth - buttonWidth*1/2;
-  buttonY1 = MusicButtonDrawY;
-  buttonX2 = MusicButtonDrawX + buttonWidth*1/2;
-  buttonY2 = buttonY1;
-  buttonHeight = height * buttonScaleHeight;
+  float musicButtonDrawX = width * 8/20;
+  float musicButtonDrawY = height * 1/2;
+  pauseScaleWidth = 1.0/20.0; //used to change x-size
+  pauseScaleHeight = 1.0/5.0; //used to change y-axis
+  println(pauseScaleWidth);
+  pauseWidth = width * pauseScaleWidth;
+  pauseX1 = musicButtonDrawX - pauseWidth - pauseWidth*1/2;
+  pauseY1 = musicButtonDrawY;
+  pauseX2 = musicButtonDrawX + pauseWidth*1/2;
+  pauseY2 = pauseY1;
+  pauseHeight = height * pauseScaleHeight;
+  //
+  stopX = pauseX1;
+  stopY = musicButtonDrawY * 3/2;
+  stopWidth = pauseHeight ;
+  stopHeight = pauseHeight;
+  //
 }//End setup
 //
 void draw() {
-  rect( buttonX1, buttonY1, buttonWidth, buttonHeight );
-  rect( buttonX2, buttonY2, buttonWidth, buttonHeight );
-  
+  drawMusicButtons();
 }//End draw
 //
 void keyPressed() {}//End keyPressed
 //
 void mousePressed() {}//End mousePressed
-//
-//End MAIN Program (Driver)
 //
 //End MAIN Program (Driver)
