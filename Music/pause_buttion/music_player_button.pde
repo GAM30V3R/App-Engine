@@ -4,6 +4,7 @@ float pauseScaleWidth, pauseScaleHeight;
 float stopX, stopY, stopWidth, stopHeight;
 float playX1, playY1, playX2, playY2, playX3, playY3;
 float ffX1, ffY1, ffX2, ffY2, ffX3, ffY3, ffX4, ffY4, ffX5, ffY5, ffX6, ffY6;
+float rX1, rY1, rX2, rY2, rX3, rY3, rX4, rY4, rX5, rY5, rX6, rY6;
 color resetcolorNightMode=#FFFF48, red=#FF0000; //Night Mode Friendly
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly
 //
@@ -12,6 +13,7 @@ void drawMusicButtons() {
   drawStopButton();
   drawPlayButton ();
   drawFFButton();
+  drawRButton();
 }//End drawMusicButtons() 
 //
 void drawPauseButton() {
@@ -35,11 +37,16 @@ void drawPlayButton() {
 //
 void drawFFButton() {
    fill(red);
-   triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
    triangle( ffX4, ffY4, ffX5, ffY5, ffX6, ffY6) ;
+   triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
    fill(resetcolorDayMode) ; //Change this to ternary
 }//End drawFFButton()
 //
-
+void drawRButton() {
+   fill(red);
+   triangle( rX4 , rY4, rX5, rY5, rX6, rY6) ;
+   triangle( rX1, rY1, rX2, rY2, rX3, rY3) ;
+   fill(resetcolorDayMode) ; //Change this to ternary
+}//End drawReverseButton()
 //
 //End Music Player Buttons
