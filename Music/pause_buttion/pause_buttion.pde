@@ -19,7 +19,7 @@ void setup() {
   //
   stopX = pauseX1;
   stopY = musicButtonDrawY * 3/2;
-  stopWidth = -pauseHeight ;
+  stopWidth = pauseHeight ;
   stopHeight = pauseHeight;
   //
   playX1 = pauseX1 ;
@@ -29,32 +29,49 @@ void setup() {
   playX3 = pauseX1 ;
   playY3 = musicButtonDrawY + pauseHeight ;
   //
-  ffX1 = pauseX1 * 4.0/3.0 ;
+  ffX1 = musicButtonDrawX + pauseHeight*1/3 + pauseHeight;
   ffY1 = musicButtonDrawY;
-  ffX2 = playX2 * 11.5/9.0;
+  ffX2 = ffX1 * 10.5/9.0;
   ffY2 = playY2;
   ffX3 = ffX1;
   ffY3 = playY3;
-  ffX4 = playX2 * 10.5/9.0;
+  ffX4 = ffX1 * 9.5/9.0;
   ffY4 = musicButtonDrawY;
-  ffX5 = ffX2 * 9.5/9.0;
+  ffX5 = ffX4 * 10.5/9.0;
   ffY5 = playY2;
   ffX6 = ffX4;
   ffY6 = ffY3;
   //
   rX1 = musicButtonDrawX - pauseHeight*1/3 - pauseHeight;
-  rY1 = musicButtonDrawX -ffY1;
-  rX2 =  -ffX2;
+  rY1 = musicButtonDrawX - ffY1;
+  rX2 =  rX1 * 6.5/9.0;
   rY2 = ffY2;
   rX3 = musicButtonDrawX - pauseHeight*1/3 - pauseHeight;
   rY3 = ffY3;
-  rX4 = musicButtonDrawX - pauseHeight*1/3 - pauseHeight;
+  rX4 = rX1 * 8.15/9.0;
   rY4 = ffY4;
-  rX5 = -ffX5;
+  rX5 = rX4 * 6.25/9.0 ;
   rY5 = ffY5;
-  rX6 = musicButtonDrawX - pauseHeight*1/3 - pauseHeight;
+  rX6 = rX4;
   rY6 = ffY6;
   //
+  skipX1 = ffX2 + pauseHeight*1/3 + pauseHeight;
+  skipY1 = playY1;
+  skipX2 = skipX1 + (pauseWidth * 1.5);
+  skipY2 = playY2;
+  skipX3 = skipX1;
+  skipY3 = playY3;
+  skipX4 = skipX2;
+  skipY4 = pauseY1;
+  //
+  backX1 = rX2 - pauseHeight*1/3 - pauseHeight;
+  backY1 = skipY1;
+  backX2 = backX1 - (pauseWidth * 1.5); 
+  backY2 = skipY2;
+  backX3 = backX1;
+  backY3 = skipY3;
+  backX4 = backX2;
+  backY4 = skipY4;
 }//End setup()
 //
 void draw() {
