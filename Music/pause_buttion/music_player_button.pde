@@ -7,6 +7,7 @@ float ffX1, ffY1, ffX2, ffY2, ffX3, ffY3, ffX4, ffY4, ffX5, ffY5, ffX6, ffY6;
 float rX1, rY1, rX2, rY2, rX3, rY3, rX4, rY4, rX5, rY5, rX6, rY6;
 float skipX1, skipY1, skipX2, skipY2, skipX3, skipY3, skipX4, skipY4;
 float backX1, backY1, backX2, backY2, backX3, backY3, backX4, backY4;
+float loopX1, loopY1, loopWidth, loopHeight, loopX2, loopY2, loopWidth2, loopHeight2, loopX3, loopY3, loopX4, loopY4, loopX5, loopY5;
 color resetcolorNightMode=#FFFF48, red=#FF0000; //Night Mode Friendly
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly
 //
@@ -18,6 +19,7 @@ void drawMusicButtons() {
   drawRButton();
   drawSkipButton();
   drawBackButton();
+  drawLoopButton() ;
 }//End drawMusicButtons() 
 //
 void drawPauseButton() {
@@ -65,5 +67,12 @@ void drawBackButton() {
   rect (backX4, backY4, -pauseWidth, pauseHeight);
   fill(resetcolorDayMode) ; //Change this to ternary
 }//End drawBackButton()
-//  
+// 
+void drawLoopButton() {
+  fill(red);
+  ellipse ( loopX1, loopY1, loopWidth, loopHeight);
+  ellipse ( loopX2, loopY2, loopWidth2, loopHeight2);
+  triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
+  fill(resetcolorDayMode) ; //Change this to ternary
+}//End drawLoopButton()
 //End Music Player Buttons

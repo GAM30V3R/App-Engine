@@ -72,6 +72,21 @@ void setup() {
   backY3 = skipY3;
   backX4 = backX2;
   backY4 = skipY4;
+  //
+  loopX1 = ffX4;
+  loopY1 = musicButtonDrawY * 6.75/4;
+  loopWidth = pauseHeight;
+  loopHeight = pauseHeight;
+  loopX2 = loopX1;
+  loopY2 = loopY1;
+  loopWidth2 = loopWidth * 1/2;
+  loopHeight2 = loopHeight * 1/2;
+  loopX3 = ffX4;
+  loopY3 = loopY1 - (loopHeight2 * 2.5/2 );
+  loopX4 = loopX1 * 10.5/10;
+  loopY4 =  musicButtonDrawY * 12.5/10;
+  loopX5 = loopX3;
+  loopY5 = loopY1 - (loopHeight2 / 2.5/2) ;
 }//End setup()
 //
 void draw() {
