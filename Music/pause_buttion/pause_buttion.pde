@@ -84,9 +84,20 @@ void setup() {
   loopX3 = ffX4;
   loopY3 = loopY1 - (loopHeight2 * 2.5/2 );
   loopX4 = loopX1 * 10.5/10;
-  loopY4 =  musicButtonDrawY * 12.5/10;
+  loopY4 =  loopY3 * 9.5/9;
   loopX5 = loopX3;
   loopY5 = loopY1 - (loopHeight2 / 2.5/2) ;
+  //
+  muteX1 = rX3;
+  muteY1 = stopY;
+  muteX2 = muteX1 * 7.5/9.0;
+  muteY2 = loopY1;
+  muteX3 = muteX1;
+  muteY3 = muteY1 + pauseHeight;
+  muteX4 = muteX2;
+  muteY4 = muteY1;
+  muteWidth = -stopHeight ;
+  muteHeight = stopHeight;
 }//End setup()
 //
 void draw() {
