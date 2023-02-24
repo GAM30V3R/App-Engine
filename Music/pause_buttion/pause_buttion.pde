@@ -5,11 +5,14 @@ void setup() {
   size(1000, 500); //width, height
   //fullScreen(); //displayWidth, displayHeight
   //Population, visual data
+  
+  
   float musicButtonDrawX = width * 25/50;
   float musicButtonDrawY = height * 1/2;
   pauseScaleWidth = 1.0/30.0; //used to change x-size
   pauseScaleHeight = 1.0/5.5; //used to change y-axis
-  println(pauseScaleWidth);
+  //println(pauseScaleWidth);
+  //println(pauseScaleHeight);
   pauseWidth = width * pauseScaleWidth;
   pauseX1 = musicButtonDrawX - pauseWidth - pauseWidth*1/2;
   pauseY1 = musicButtonDrawY;
@@ -84,20 +87,21 @@ void setup() {
   loopX3 = ffX4;
   loopY3 = loopY1 - (loopHeight2 * 2.5/2 );
   loopX4 = loopX1 * 10.5/10;
-  loopY4 =  loopY3 * 9.5/9;
+  loopY4 =  loopY3 * 9.55/9;
   loopX5 = loopX3;
   loopY5 = loopY1 - (loopHeight2 / 2.5/2) ;
   //
   muteX1 = rX3;
   muteY1 = stopY;
-  muteX2 = muteX1 * 7.5/9.0;
+  muteX2 = rX2;
   muteY2 = loopY1;
   muteX3 = muteX1;
   muteY3 = muteY1 + pauseHeight;
-  muteX4 = muteX2;
-  muteY4 = muteY1;
-  muteWidth = -stopHeight ;
-  muteHeight = stopHeight;
+  muteX4 = rX4;
+  muteY4 = loopY4;
+  muteWidth = -stopHeight;
+  muteHeight = stopHeight * 0.75;
+  muteX5 = musicButtonDrawX - pauseHeight*2/3 - pauseHeight;
 }//End setup()
 //
 void draw() {
