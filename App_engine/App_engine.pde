@@ -12,12 +12,20 @@ void setup() {
   //
   setupMusic();
   //
-  songs[0].loop(0); //Change the index manually
+  songs[currentSong].loop(0); //Change the index manually
+  //
 }//End setup
 //
-void draw() {}//End draw
+void draw() {
+  print("current Song Position:", songs[currentSong].position() );
+  println("\tEnd of Song:", songs[currentSong].length() );
+
+}//End draw
 //
-void keyPressed() {}//End keyPressed
+void keyPressed() {
+  keyPressedMusic();
+
+}//End keyPressed
 //
 void mousePressed() {}//ENd mousePressed
 //
