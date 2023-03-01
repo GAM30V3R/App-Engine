@@ -2,6 +2,10 @@
 Also see Music SubProgram
 */
 //Global Variables 
+String path = new File("").getAbsolutePath(); //Exported Program
+String directory = "C:"; //Not Exported
+//Reminder: \n is a character escape, so pathway must have forward slashes
+//
 //
 void setupOpperating_System() {
   File anyDirectory = new File(path); //Used when exported

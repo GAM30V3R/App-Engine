@@ -7,19 +7,12 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 //
 //Global Variables
-String path = new File("").getAbsolutePath(); //Exported Program
-String directory = "C:"; //Not Exported
-//Reminder: \n is a character escape, so pathway must have forward slashes
-//
-
 //
 void setup() {
   //
- 
-
-  songs[0].loop(0); //Change the index manually
-  //
   setupMusic();
+  //
+  songs[0].loop(0); //Change the index manually
 }//End setup
 //
 void draw() {}//End draw
