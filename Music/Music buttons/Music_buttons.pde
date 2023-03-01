@@ -94,8 +94,7 @@ void setupPopulation() {
   muteY3 = muteY1 + pauseHeight;
   muteX4 = rX4;
   muteY4 = loopY4;
-  muteWidth = -stopHeight;
+  muteWidth = -stopHeight * 6/8;
   muteHeight = stopHeight * 0.75;
-  muteX5 = musicButtonDrawX - pauseHeight*2/3 - pauseHeight;
+  muteX5 = musicButtonDrawX - pauseHeight*1/6 - pauseHeight;
 }//End setupPopulation()
-//

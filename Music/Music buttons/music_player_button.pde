@@ -87,8 +87,8 @@ void drawMuteButton() {
   fill(black);
   triangle (muteX1, muteY1, muteX2, muteY2, muteX3, muteY3);
   rect (muteX4, muteY4, muteWidth, muteHeight);
-  line ( rX5, muteY1, muteX5, muteY3);
-  line ( muteX5, muteY1, rX5, muteY3);
+  line ( rX2, muteY1, muteX5, muteY3);
+  line ( muteX5, muteY1, rX2, muteY3);
   fill(resetcolorDayMode) ; //Change this to ternary
 }//End drawMuteButton()
 //End Music Player Buttons
