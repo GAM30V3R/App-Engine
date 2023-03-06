@@ -76,7 +76,11 @@ void keyPressedMusic() {
     
     songs[currentSong].loop(-1); //perameter is empty or -1
   }//End Infinite Loop
-  
+  //
+  //Stop
+  if ( songs[currentSong].isPlaying() ) { .pause(); .rewind(); } else { .rewind(); }
+  //
+  //Play-Pause
   
   
   //Music Keay Board Short Cuts
