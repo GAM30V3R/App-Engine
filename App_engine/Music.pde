@@ -57,8 +57,8 @@ void keyPressedMusic() {
   }//End Reverse
   //
   //Single loop
-  //if ( key == 'l' || key == 'L' ) songs[currentSong].loop(1) ;
-  if ( key == 'l' || key == 'L' ) {
+  //if ( key == 'l' || key == 'L' ) songs[currentSong].loop(1) ; //ERROR: immediately restarts song
+  if ( key == '1') {
     //Finish Playing current song, then replay once
     delay(songs[currentSong].length() - songs[currentSong].position() );
     //ERROR: delay stops all player functions, computer doesn't recognize if
@@ -66,6 +66,19 @@ void keyPressedMusic() {
     
     songs[currentSong].loop(0);
   }//End Single loop
+  
+  //Infinite Loop
+  if ( key == '8' && key != '1') {
+    //Finish Playing current song, then replay once
+    delay(songs[currentSong].length() - songs[currentSong].position() );
+    //ERROR: delay stops all player functions, computer doesn't recognize if
+    //       song is playing
+    
+    songs[currentSong].loop(-1); //perameter is empty or -1
+  }//End Infinite Loop
+  
+  
+  
   //Music Keay Board Short Cuts
 }//End keyPressedMusic
 //
