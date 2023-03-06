@@ -25,23 +25,47 @@ void drawMusic() {
 }//End drawMusic
 //
 void keyPressedMusic() {
-      //
-    //Prototyping to copy when it works
-    if ( key =='m' || key =='M' ) {//Mute Button, not PAUSE, only affect 
-      if ( songs[currentSong].isMuted(  ) ) {
-        songs[currentSong].unmute();
-      } else if ( songs[currentSong].position() >= songs[currentSong].length()*4/5 ) {
-        //play the next song
-        //ERROR song breaks if the song finishes
-        songs[currentSong].rewind();
+  //
+  //Prototyping to copy when it works
+  if ( key =='m' || key =='M' ) {//Mute Button, not PAUSE, only affect 
+  //ERROR: this MUTE button only workes when song is playing
+  //ERROR Fix: unmute or rewind when song is not playing (i.e. unmute next song)
+    if ( songs[currentSong].isMuted(  ) ) {
+      songs[currentSong].unmute();
+    } else if ( songs[currentSong].position() >= songs[currentSong].length()*4/5 ) {
+      //play the next song
+      //ERROR song breaks if the song finishes
+      songs[currentSong].rewind();
       
-      } else {
-        songs[currentSong].mute();
-      
-      }
-    }//End Mute Button
+    } else {
+      songs[currentSong].mute();
+    }
+  }//End Mute Button
+  //  
+  //Fast Forward and Reverse
+  if ( key == 'f' || key == 'F' ) {  
+    //skips Forward to end of song
+    //ERROR: if at end, plays begining
+    songs[currentSong].skip( 5000 ); //parameter in milliseconds
+  } else if ( songs[currentSong].position() >= songs[currentSong].length()*4/5 ) {
+    //ERROR Catch: if end of song, then next song
+  }//End Fast Forward
+    //ERROR
+  if ( key == 'r' || key == 'R' ) {
+    songs[currentSong].skip( -5000 ); //parameter in milliseconds
+    //spaming R means start playing at beginning of song 
+  }//End Reverse
+  //
+  //Single loop
+  //if ( key == 'l' || key == 'L' ) songs[currentSong].loop(1) ;
+  if ( key == 'l' || key == 'L' ) {
+    //Finish Playing current song, then replay once
+    delay(songs[currentSong].length() - songs[currentSong].position() );
+    //ERROR: delay stops all player functions, computer doesn't recognize if
+    //       song is playing
     
-    //
+    songs[currentSong].loop(0);
+  }//End Single loop
   //Music Keay Board Short Cuts
 }//End keyPressedMusic
 //
