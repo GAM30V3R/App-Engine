@@ -32,7 +32,7 @@ void keyPressedMusic() {
   //ERROR Fix: unmute or rewind when song is not playing (i.e. unmute next song)
     if ( songs[currentSong].isMuted(  ) ) {
       songs[currentSong].unmute();
-    } else if ( songs[currentSong].position() >= songs[currentSong].length()*4/5 ) {
+    } else if ( songs[currentSong].position() >= songs[currentSong].length()*99/100 ) {
       //play the next song
       //ERROR song breaks if the song finishes
       songs[currentSong].rewind();
@@ -47,7 +47,7 @@ void keyPressedMusic() {
     //skips Forward to end of song
     //ERROR: if at end, plays begining
     songs[currentSong].skip( 5000 ); //parameter in milliseconds
-  } else if ( songs[currentSong].position() >= songs[currentSong].length()*4/5 ) {
+  } else if ( songs[currentSong].position() >= songs[currentSong].length()*99/100 ) {
     //ERROR Catch: if end of song, then next song
   }//End Fast Forward
     //ERROR
@@ -78,11 +78,28 @@ void keyPressedMusic() {
   }//End Infinite Loop
   //
   //Stop
-  if ( songs[currentSong].isPlaying() ) { .pause(); .rewind(); } else { .rewind(); }
+  if ( key == 's' || key == 'S' ) {
+    if ( songs[currentSong].isPlaying() ) {
+      songs[currentSong].pause(); 
+      songs[currentSong].rewind(); 
+    } else { 
+      songs[currentSong].rewind(); 
+    }
+  }//End stop
   //
   //Play-Pause
+  if ( key == 'p' || key == 'P' ) {//Play-Pause Button
+    if ( songs[currentSong].isPlaying() ) {
+      songs[currentSong].pause();
+    } else if (songs[currentSong].position() >= songs[currentSong].length()*99/100) {
+      songs[currentSong].pause();
+      songs[currentSong].rewind();
+    } else {
+      songs[currentSong].play(); //no auto rewind like loop()
+    }
+  }//End Play-Pause
   
-  
+  //
   //Music Keay Board Short Cuts
 }//End keyPressedMusic
 //
