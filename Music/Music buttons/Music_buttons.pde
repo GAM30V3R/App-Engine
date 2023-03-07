@@ -41,7 +41,7 @@ void setupPopulation() {
   ffY6 = ffY3;
   //
   rX1 = musicButtonDrawX - pauseHeight*1/3 - pauseHeight;
-  rY1 = musicButtonDrawX - ffY1;
+  rY1 = musicButtonDrawY;
   rX2 =  rX1 * 6.5/9.0;
   rY2 = ffY2;
   rX3 = musicButtonDrawX - pauseHeight*1/3 - pauseHeight;
@@ -82,19 +82,30 @@ void setupPopulation() {
   loopX3 = ffX4;
   loopY3 = loopY1 - (loopHeight2 * 2.5/2 );
   loopX4 = loopX1 * 10.5/10;
-  loopY4 =  loopY3 * 9.55/9;
+  loopY4 = loopY3 * 9.55/9;
   loopX5 = loopX3;
   loopY5 = loopY1 - (loopHeight2 / 2.5/2) ;
   //
-  muteX1 = rX3;
+  muteX1 = musicButtonDrawX - (pauseWidth * 5);
   muteY1 = stopY;
-  muteX2 = rX2;
+  muteX2 = rX5;
   muteY2 = loopY1;
   muteX3 = muteX1;
   muteY3 = muteY1 + pauseHeight;
-  muteX4 = rX4;
+  muteX4 = muteX1 - (pauseWidth * 1.0);
   muteY4 = loopY4;
   muteWidth = -stopHeight * 6/8;
-  muteHeight = stopHeight * 0.75;
-  muteX5 = musicButtonDrawX - pauseHeight*1/6 - pauseHeight;
+  muteHeight = stopHeight * 6/8;
+  muteX5 = muteX4;
+  muteY5 = muteY3 * 6.75/4;
+  muteWidth2 = -stopHeight * 6/8;
+  muteHeight2 = -stopHeight * 6/8;
+  muteX6 = muteX1;
+  muteY6 = muteY1;
+  muteX7 = musicButtonDrawX - pauseHeight*0.50/12.0 - pauseHeight;
+  muteY7 = muteY1 + pauseHeight;
+  muteX8 = muteX7;
+  muteY8 = muteY1;
+  muteX9 = muteX6;
+  muteY9 = muteY1 + pauseHeight;
 }//End setupPopulation()
