@@ -33,7 +33,8 @@ void keyPressedMusic() {
     if ( songs[currentSong].isMuted(  ) ) {
       songs[currentSong].unmute();
     } else if ( songs[currentSong].position() >= songs[currentSong].length()*99/100 ) {
-      //play the next song
+      //MAKE IT SMARTER
+      //make it play the next song
       //ERROR song breaks if the song finishes
       songs[currentSong].rewind();
       
@@ -48,6 +49,7 @@ void keyPressedMusic() {
     //ERROR: if at end, plays begining
     songs[currentSong].skip( 5000 ); //parameter in milliseconds
   } else if ( songs[currentSong].position() >= songs[currentSong].length()*99/100 ) {
+    //NEEDS TO BE DONE ON MY OWN
     //ERROR Catch: if end of song, then next song
   }//End Fast Forward
     //ERROR
