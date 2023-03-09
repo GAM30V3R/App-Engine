@@ -9,12 +9,13 @@ float skipX1, skipY1, skipX2, skipY2, skipX3, skipY3, skipX4, skipY4;
 float backX1, backY1, backX2, backY2, backX3, backY3, backX4, backY4;
 float loopX1, loopY1, loopWidth, loopHeight, loopX2, loopY2, loopWidth2, loopHeight2, loopX3, loopY3, loopX4, loopY4, loopX5, loopY5;
 float muteX1, muteY1, muteX2, muteY2, muteX3, muteY3, muteX4, muteY4, muteX5, muteY5, muteX6, muteY6, muteX7, muteY7, muteX8, muteY8, muteX9, muteY9, muteWidth, muteHeight, muteWidth2, muteHeight2;
-color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000; //Night Mode Friendly
+color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000, cyan=#00FFFF, blue=#0000FF, green=#00FF00; //Night Mode Friendly
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly
 //
 void drawMusicButtons() {
   stroke(red) ;
   strokeWeight(7.5);
+  //strokeWeight(4.75) when doing the extra lines for design
   drawPauseButton();
   drawStopButton();
   drawPlayButton ();
@@ -25,6 +26,16 @@ void drawMusicButtons() {
   drawLoopButton() ;
   drawMuteButton();
 }//End drawMusicButtons() 
+//
+/*
+  {
+    stroke(cyan);
+    strokeWeight(4.75);
+    line( , , , );
+    strokeWeight(7.5);
+    stroke(red):
+  }
+*/
 //
 void drawPauseButton() {
   fill(black);
@@ -41,14 +52,41 @@ void drawStopButton() {
 //
 void drawPlayButton() {
   fill(black);
-  triangle( playX1, playY1, playX2, playY2, playX3, playY3) ;
+  triangle( playX1, playY1, playX2, playY2, playX3, playY3);
+  {
+    stroke(cyan);
+    strokeWeight(4.75);
+    line( playX1, playY2, playX2, playY2);
+    strokeWeight(7.5);
+    stroke(red);
+  }
   fill(resetcolorDayMode) ; //Change this to ternary
 }//End drawPlayButton()
 //
 void drawFFButton() {
    fill(black);
    triangle( ffX4, ffY4, ffX5, ffY5, ffX6, ffY6) ;
+   {
+     stroke(cyan);
+     strokeWeight(4.75);
+     line( ffX4, ffY4, ffX2, ffY2);
+     line( ffX6, ffY6, ffX2, ffY2);
+     strokeWeight(7.5);
+     stroke(red);
+   }
+
    triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
+   {
+     stroke(cyan);
+     strokeWeight(4.75);
+     line( ffX1, ffY2, ffX5, ffY5);
+     line( ffX1, ffY1, ffX4, ffY5);
+     line( ffX3, ffY3, ffX4, ffY5);
+     line( ffX4, ffY4, ffX6, ffY6);
+     strokeWeight(7.5);
+     stroke(red);
+   }
+
    fill(resetcolorDayMode) ; //Change this to ternary
 }//End drawFFButton()
 //
