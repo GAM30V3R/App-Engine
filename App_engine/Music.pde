@@ -121,17 +121,40 @@ void keyPressedMusic() {
   */
   //
   //
-  if (key == 'n'|| key =='N') {}//End
+if ( key == 'n' || key =='N' ) {
+    if ( songs[currentSong].isPlaying() ) {
+      //Must include .pause()
+      //If the current song is playing, then pressing the next button
+      //play the next song
+      //Must include .play()
+    } else if (  ) {
+    
+    } else {
+      //.rewind();
+      currentSong++;
+      
+      /*
+      if ( currentSong == numberOfSongs - 1 ) { //Throws error: ArrayIndexOutOfBounds
+        currentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong++;
+      }//End Catch "ArrayIndexOutOfBounds"
+      */
+      //Song was not playing, so the next song does not auto play
+    }
+  } //End Next Button
   //
+  //Previous Song Button, Back Button
+  //Students to develop, based on next button
+  //if ( key == 'b' || key =='B' ) {} //End Previous Song Button or Back Button
   //
-  if (key == 'n'|| key =='N') {}//End
   //Music Key Board Short Cuts
 }//End keyPressedMusic
 //
 void mousePressedMusic() {
 }//End mousePressedMusic
 void concatenationOfMusicFiles() {
-  pathway = "_______/";
+  pathway = "Music and Sound Effects/";
   _______M1 = "_______.mp3";
   _______M2 = "_______.mp3";
   _______SEFF1 = "_______.mp3";

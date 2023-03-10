@@ -61,6 +61,7 @@ void setupPopulation() {
   skipY3 = playY3;
   skipX4 = skipX2;
   skipY4 = pauseY1;
+  skipX5 = skipX2 + (pauseWidth);
   //
   backX1 = rX2 - pauseHeight*1/3 - pauseHeight;
   backY1 = skipY1;

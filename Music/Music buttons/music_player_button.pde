@@ -5,11 +5,11 @@ float stopX, stopY, stopWidth, stopHeight;
 float playX1, playY1, playX2, playY2, playX3, playY3;
 float ffX1, ffY1, ffX2, ffY2, ffX3, ffY3, ffX4, ffY4, ffX5, ffY5, ffX6, ffY6;
 float rX1, rY1, rX2, rY2, rX3, rY3, rX4, rY4, rX5, rY5, rX6, rY6;
-float skipX1, skipY1, skipX2, skipY2, skipX3, skipY3, skipX4, skipY4;
+float skipX1, skipY1, skipX2, skipY2, skipX3, skipY3, skipX4, skipY4, skipX5;
 float backX1, backY1, backX2, backY2, backX3, backY3, backX4, backY4;
 float loopX1, loopY1, loopWidth, loopHeight, loopX2, loopY2, loopWidth2, loopHeight2, loopX3, loopY3, loopX4, loopY4, loopX5, loopY5;
 float muteX1, muteY1, muteX2, muteY2, muteX3, muteY3, muteX4, muteY4, muteX5, muteY5, muteX6, muteY6, muteX7, muteY7, muteX8, muteY8, muteX9, muteY9, muteWidth, muteHeight, muteWidth2, muteHeight2;
-color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000, cyan=#00FFFF, blue=#0000FF, green=#00FF00; //Night Mode Friendly
+color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000, cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, green=#00FF00; //Night Mode Friendly
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly
 //
 void drawMusicButtons() {
@@ -29,7 +29,7 @@ void drawMusicButtons() {
 //
 /*
   {
-    stroke(cyan);
+    stroke(white);
     strokeWeight(4.75);
     line( , , , );
     strokeWeight(7.5);
@@ -54,7 +54,7 @@ void drawPlayButton() {
   fill(black);
   triangle( playX1, playY1, playX2, playY2, playX3, playY3);
   {
-    stroke(cyan);
+    stroke(white);
     strokeWeight(4.75);
     line( playX1, playY2, playX2, playY2);
     strokeWeight(7.5);
@@ -67,22 +67,23 @@ void drawFFButton() {
    fill(black);
    triangle( ffX4, ffY4, ffX5, ffY5, ffX6, ffY6) ;
    {
-     stroke(cyan);
+     stroke(white);
      strokeWeight(4.75);
      line( ffX4, ffY4, ffX2, ffY2);
      line( ffX6, ffY6, ffX2, ffY2);
+     line( ffX1, ffY2, ffX5, ffY5);
+     line( ffX4, ffY4, ffX6, ffY6);
      strokeWeight(7.5);
      stroke(red);
    }
 
    triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
    {
-     stroke(cyan);
+     stroke(white);
      strokeWeight(4.75);
-     line( ffX1, ffY2, ffX5, ffY5);
      line( ffX1, ffY1, ffX4, ffY5);
      line( ffX3, ffY3, ffX4, ffY5);
-     line( ffX4, ffY4, ffX6, ffY6);
+     line( ffX1, ffY2, ffX2, ffY2);
      strokeWeight(7.5);
      stroke(red);
    }
@@ -92,8 +93,27 @@ void drawFFButton() {
 //
 void drawRButton() {
    fill(black);
-   triangle( rX4 , rY4, rX5, rY5, rX6, rY6) ;
-   triangle( rX1, rY1, rX2, rY2, rX3, rY3) ;
+   triangle( rX4 , rY4, rX5, rY5, rX6, rY6);
+   {
+     stroke(white);
+     strokeWeight(4.75);
+     line( rX4, rY4, rX2, rY2);
+     line( rX6, rY6, rX2, rY2);
+     line( rX4, rY2, rX5, rY5);
+     line( rX4, rY4, rX6, rY6);
+     strokeWeight(7.5);
+     stroke(red);
+   }
+   triangle( rX1, rY1, rX2, rY2, rX3, rY3);
+   {
+     stroke(white);
+     strokeWeight(4.75);
+     line( rX1, rY1, rX4, rY5);
+     line( rX3, rY3, rX4, rY5);
+     line( rX1, rY2, rX2, rY2);
+     strokeWeight(7.5);
+     stroke(red);
+   }
    fill(resetcolorDayMode) ; //Change this to ternary
 }//End drawReverseButton()
 //
@@ -101,6 +121,17 @@ void drawSkipButton() {
   fill(black);
   triangle (skipX1, skipY1, skipX2, skipY2, skipX3, skipY3);
   rect (skipX4, skipY4, pauseWidth, pauseHeight);
+  {
+    stroke(white);
+    strokeWeight(4.75);
+    line( skipX1, skipY2, skipX2, skipY2);
+    line( skipX2, skipY2, skipX5, skipY1);
+    line( skipX2, skipY2, skipX5, skipY3);
+    line( skipX5, skipY2, skipX4, skipY1);
+    line( skipX5, skipY2, skipX4, skipY3);
+    strokeWeight(7.5);
+    stroke(red);
+  }
   fill(resetcolorDayMode) ; //Change this to ternary
 }//End drawSkipButton()
 //
