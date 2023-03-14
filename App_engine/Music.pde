@@ -97,7 +97,7 @@ void keyPressedMusic() {
   //
   //Back Button
   if ( key == 'b' || key =='B' ) {
-    badk();
+    back();
   } //End Previous Song Button or Back Button
   //
   //Music Key Board Short Cuts
@@ -188,7 +188,7 @@ void next(){
       //Must include .play()
   } else if ( currentSong == songs.length - 1 ) {
     songs[currentSong].rewind();
-    currentSong = numberOfSongs - numberOfSongs;
+    currentSong = songs.length - songs.length;
   } else {
     songs[currentSong].rewind();
     currentSong++;
@@ -198,4 +198,4 @@ void next(){
 void back() {
   
 }
-ines//End Music SubProgram
+//End Music SubProgram
