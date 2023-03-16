@@ -1,7 +1,7 @@
 //Global Variables
 Minim minim; //creates an object to access all functions
-AudioPlayer[] songs = new AudioPlayer[1]; //creates a "Play list" variable holding MP
-AudioPlayer[] soundEffects = new AudioPlayer[1];
+AudioPlayer[] songs = new AudioPlayer[0]; //creates a "Play list" variable holding MP
+AudioPlayer[] soundEffects = new AudioPlayer[0];
 String pathway, Start_Your_Engines, The_Simplest, Wood_Door_Series, Attic_Door ;
 int currentSong=0;
 Boolean autoPlayOn=false;
@@ -17,8 +17,8 @@ void setupMusic() {
   concatenationOfMusicFiles();
   songs[0] = minim.loadFile( pathway + Start_Your_Engines );
   songs[1] = minim.loadFile( pathway + The_Simplest );
-  soundEffects[0] = minim.loadFile( pathway + Wood_Door_Series );
-  soundEffects[1] = minim.loadFile( pathway + Attic_Door );
+  soundEffects[2] = minim.loadFile( pathway + Wood_Door_Series );
+  soundEffects[3] = minim.loadFile( pathway + Attic_Door );
 } //End setupMusic
 //
 void drawMusic() {
@@ -78,7 +78,7 @@ void keyPressedMusic() {
     playpause();
   }//End Play-Pause
   //
-  /*
+ 
   //Autoplay
   if ( key == '[' ) {
     if (autoPlayOn == false) {
@@ -87,7 +87,7 @@ void keyPressedMusic() {
       autoPlayOn = false;
     }
   }//End Autoplay
-  */
+
   //
   //
   if ( key == 'n' || key =='N' ) {
@@ -222,7 +222,9 @@ void fastforward() {
   */
   songs[currentSong].skip( 5000 ); //parameter in milliseconds
   if ( songs[currentSong].position() >= songs[currentSong].length()*99/100 ) {
+    songs[currentSong].pause();
     //Needs to pause at the end of the song or play the next song
+    //if autoplay is on it plays the next song
     //NEEDS TO BE DONE ON MY OWN
     //ERROR Catch: if end of song, then next song
   }
@@ -251,7 +253,7 @@ void next(){
   */
   if ( songs[currentSong].isPlaying() ) {
     songs[currentSong].pause();
-    //figure out how to make it play the next song
+    songs[currentSong]; //Still figuring this part out
     songs[currentSong].play();
   } else if ( currentSong == songs.length - 1 ) {
     songs[currentSong].rewind();
@@ -274,7 +276,7 @@ void back() {
   */
   if ( songs[currentSong].isPlaying() ) {
     songs[currentSong].pause();
-    //figure out how to make it play the previous song
+    songs[currentSong]; //currentSong-=1 ; //Still figuring this part out
     songs[currentSong].play();
       //If the current song is playing, then pressing the next button
       //play the next song
@@ -286,4 +288,14 @@ void back() {
     currentSong--;
   }
 }
+/*
+void autoplay() {
+  if ( autoPlayOn ) {
+    
+    songs[currentSong].isPlaying();
+    when false rewind();
+    currentSong+=1;
+    songs[currentSong].play();
+}
+*/
 //End Music SubProgram
