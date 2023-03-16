@@ -87,14 +87,18 @@ void setupPopulation() {
   loopX5 = loopX3;
   loopY5 = loopY1 - (loopHeight2 / 2.5/2) ;
   loopX6 = loopX1 - loopWidth/4;
-  loopY6 = loopY3 * 1;
+  loopY6 = loopY3 + (loopHeight/1.15);
   loopX7 = loopX1 + loopWidth/2;
   loopY7 = loopY1 - loopHeight/2;
   loopX8 = loopX1 + loopWidth/4;
   loopY8 = loopY3 + (loopHeight/1.65);
   loopX9 = loopX1 - loopWidth/2;
   loopY9 = loopY1 + loopHeight/2;
-  loopX10 = 1;
+  loopY10 = loopY3 + (loopHeight/2.5);
+  loopX11 = loopX1 + (loopWidth/2.7);
+  loopY11 = loopY3 + (loopHeight/4);
+  loopX12 = loopX1 - (loopWidth/2.7);
+  loopY12 = loopY3 + (loopHeight/1);
   //
   muteX1 = musicButtonDrawX - (pauseWidth * 5);
   muteY1 = stopY;
