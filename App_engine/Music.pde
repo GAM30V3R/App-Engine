@@ -43,12 +43,14 @@ void keyPressedMusic() {
   //Fast Forward and Reverse
   if ( key == 'f' || key == 'F' ) {
     fastforward();
+    /*
     //skips Forward to end of song
     //ERROR: if at end, plays begining
     songs[currentSong].skip( 5000 ); //parameter in milliseconds
   } else if ( songs[currentSong].position() >= songs[currentSong].length()*99/100 ) {
     //NEEDS TO BE DONE ON MY OWN
     //ERROR Catch: if end of song, then next song
+    */
   }//End Fast Forward
   //ERROR
   if ( key == 'r' || key == 'R' ) {
@@ -130,10 +132,9 @@ void mute() {
   if ( songs[currentSong].isMuted(  ) ) {
     songs[currentSong].unmute();
   } else if ( songs[currentSong].position() >= songs[currentSong].length()*99/100 ) {
-    //MAKE IT SMARTER
-    //rewind to the begining and then pause it and then unmute it
-    //ERROR song breaks if the song finishes
+    songs[currentSong].pause();
     songs[currentSong].rewind();
+    songs[currentSong].unmute();
   } else {
       songs[currentSong].mute();
   }
@@ -222,6 +223,7 @@ void fastforward() {
   */
   songs[currentSong].skip( 5000 ); //parameter in milliseconds
   if ( songs[currentSong].position() >= songs[currentSong].length()*99/100 ) {
+    songs[currentSong].skip( songs[currentSong].length() - songs[currentSong].position());
     songs[currentSong].pause();
     //Needs to pause at the end of the song or play the next song
     //if autoplay is on it plays the next song
@@ -253,7 +255,7 @@ void next(){
   */
   if ( songs[currentSong].isPlaying() ) {
     songs[currentSong].pause();
-    songs[currentSong]; //Still figuring this part out
+    currentSong+=1; //Still figuring this part out
     songs[currentSong].play();
   } else if ( currentSong == songs.length - 1 ) {
     songs[currentSong].rewind();
@@ -276,7 +278,7 @@ void back() {
   */
   if ( songs[currentSong].isPlaying() ) {
     songs[currentSong].pause();
-    songs[currentSong]; //currentSong-=1 ; //Still figuring this part out
+    currentSong-=1 ; //Still figuring this part out
     songs[currentSong].play();
       //If the current song is playing, then pressing the next button
       //play the next song
@@ -291,11 +293,16 @@ void back() {
 /*
 void autoplay() {
   if ( autoPlayOn ) {
+    if(songs[currentSong].position() >= songs[currentSong].length()*99/100) {
+      songs[currentSong].rewind();
+      currentSong+=1 ;
+      songs[currentSong].play();
+    }
     
-    songs[currentSong].isPlaying();
-    when false rewind();
-    currentSong+=1;
-    songs[currentSong].play();
+    //songs[currentSong].isPlaying();
+    //when false rewind();
+    //currentSong+=1;
+    //songs[currentSong].play();
 }
 */
 //End Music SubProgram

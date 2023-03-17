@@ -153,6 +153,7 @@ void drawLoopButton() {
   {
     stroke(white);
     strokeWeight(4.75);
+    /*
     //line( loopX1, loopY7, loopX7, loopY8);
     //line( loopX7,loopY8, loopX1, loopY9);
     //line( loopX1,loopY9, loopX9, loopY8);
@@ -162,6 +163,7 @@ void drawLoopButton() {
     line( loopX11, loopY12, loopX12, loopY12);
     line( loopX12, loopY12, loopX12, loopY11);
     line( loopX12, loopY11, loopX11, loopY11);
+    */
     
     line( loopX1, loopY7, loopX8, loopY8);
     line( loopX8, loopY8, loopX1, loopY9);
@@ -172,7 +174,14 @@ void drawLoopButton() {
     line( loopX1, loopY10, loopX7, loopY8);
     line( loopX1, loopY10, loopX9, loopY8);
     
-    
+    line( loopX1, loopY10, loopX11, loopY11);
+    line( loopX11, loopY11, loopX8, loopY8);
+    line( loopX8, loopY8, loopX11, loopY12);
+    line( loopX11, loopY12, loopX1, loopY6);
+    line( loopX1, loopY6, loopX12, loopY12);
+    line( loopX12, loopY12, loopX6, loopY8);
+    line( loopX6, loopY8, loopX12, loopY11);
+    line( loopX12, loopY11, loopX1, loopY10);
     strokeWeight(7.5);
     stroke(red);
   }
