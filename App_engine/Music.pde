@@ -1,7 +1,7 @@
 //Global Variables
 Minim minim; //creates an object to access all functions
-AudioPlayer[] songs = new AudioPlayer[0]; //creates a "Play list" variable holding MP
-AudioPlayer[] soundEffects = new AudioPlayer[0];
+AudioPlayer[] songs = new AudioPlayer[2]; //creates a "Play list" variable holding MP
+AudioPlayer[] soundEffects = new AudioPlayer[2];
 String pathway, Start_Your_Engines, The_Simplest, Wood_Door_Series, Attic_Door ;
 int currentSong=0;
 Boolean autoPlayOn=false;
@@ -14,7 +14,8 @@ void setupMusic() {
   //
   //Reminder finish Opperating System Code to auto read pathway and files (See Operating System)
   //
-  concatenationOfMusicFiles();
+  concatenationOfMusicFiles(); 
+  //there is an ERROR here 
   songs[0] = minim.loadFile( pathway + Start_Your_Engines );
   songs[1] = minim.loadFile( pathway + The_Simplest );
   soundEffects[2] = minim.loadFile( pathway + Wood_Door_Series );

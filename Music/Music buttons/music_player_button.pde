@@ -145,10 +145,9 @@ void drawBackButton() {
 void drawLoopButton() {
   fill(black);
   ellipse ( loopX1, loopY1, loopWidth, loopHeight);
-  //fill(resetcolorDayMode) ; //Change this to ternary
+  fill(resetcolorDayMode) ; //Change this to ternary
   ellipse ( loopX2, loopY2, loopWidth2, loopHeight2);
   fill(black);
-  
   triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
   {
     stroke(white);
@@ -173,7 +172,6 @@ void drawLoopButton() {
     line( loopX1, loopY7, loopX6, loopY8);
     line( loopX1, loopY10, loopX7, loopY8);
     line( loopX1, loopY10, loopX9, loopY8);
-    
     line( loopX1, loopY10, loopX11, loopY11);
     line( loopX11, loopY11, loopX8, loopY8);
     line( loopX8, loopY8, loopX11, loopY12);
@@ -182,10 +180,23 @@ void drawLoopButton() {
     line( loopX12, loopY12, loopX6, loopY8);
     line( loopX6, loopY8, loopX12, loopY11);
     line( loopX12, loopY11, loopX1, loopY10);
+    line( loopX1, loopY7, loopX11, loopY11);
+    line( loopX11, loopY11, loopX7, loopY8);
+    line( loopX7, loopY8, loopX11, loopY12);
+    line( loopX11, loopY12, loopX1, loopY9);
+    line( loopX1, loopY9, loopX12, loopY12);
+    line( loopX12, loopY12, loopX9, loopY8);
+    line( loopX9, loopY8, loopX12, loopY11);
+    line( loopX12, loopY11, loopX1, loopY7);
     strokeWeight(7.5);
     stroke(red);
   }
+  
   fill(resetcolorDayMode) ; //Change this to ternary
+  noFill() ;
+  ellipse ( loopX1, loopY1, loopWidth, loopHeight);
+  ellipse ( loopX2, loopY2, loopWidth2, loopHeight2);
+  triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
 }//End drawLoopButton()
 //
 void drawMuteButton() {
