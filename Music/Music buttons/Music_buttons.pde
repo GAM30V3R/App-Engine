@@ -71,6 +71,7 @@ void setupPopulation() {
   backY3 = skipY3;
   backX4 = backX2;
   backY4 = skipY4;
+  backX5 = backX2 - (pauseWidth);
   //
   loopX1 = ffX4;
   loopY1 = musicButtonDrawY * 6.75/4;

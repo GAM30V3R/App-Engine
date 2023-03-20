@@ -6,7 +6,7 @@ float playX1, playY1, playX2, playY2, playX3, playY3;
 float ffX1, ffY1, ffX2, ffY2, ffX3, ffY3, ffX4, ffY4, ffX5, ffY5, ffX6, ffY6;
 float rX1, rY1, rX2, rY2, rX3, rY3, rX4, rY4, rX5, rY5, rX6, rY6;
 float skipX1, skipY1, skipX2, skipY2, skipX3, skipY3, skipX4, skipY4, skipX5;
-float backX1, backY1, backX2, backY2, backX3, backY3, backX4, backY4;
+float backX1, backY1, backX2, backY2, backX3, backY3, backX4, backY4, backX5;
 float loopX1, loopY1, loopWidth, loopHeight, loopX2, loopY2, loopWidth2, loopHeight2, loopX3, loopY3, loopX4, loopY4, loopX5, loopY5, loopX6, loopY6, loopX7, loopY7, loopX8, loopY8, loopX9, loopY9, loopX10, loopY10, loopX11, loopY11, loopX12, loopY12;
 float muteX1, muteY1, muteX2, muteY2, muteX3, muteY3, muteX4, muteY4, muteX5, muteY5, muteX6, muteY6, muteX7, muteY7, muteX8, muteY8, muteX9, muteY9, muteWidth, muteHeight, muteWidth2, muteHeight2;
 color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000, cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, green=#00FF00; //Night Mode Friendly
@@ -55,7 +55,7 @@ void drawPlayButton() {
   triangle( playX1, playY1, playX2, playY2, playX3, playY3);
   {
     stroke(white);
-    strokeWeight(4.75);
+    strokeWeight(2.5);
     line( playX1, playY2, playX2, playY2);
     strokeWeight(7.5);
     stroke(red);
@@ -68,7 +68,7 @@ void drawFFButton() {
    triangle( ffX4, ffY4, ffX5, ffY5, ffX6, ffY6) ;
    {
      stroke(white);
-     strokeWeight(4.75);
+     strokeWeight(2.5);
      line( ffX4, ffY4, ffX2, ffY2);
      line( ffX6, ffY6, ffX2, ffY2);
      line( ffX1, ffY2, ffX5, ffY5);
@@ -80,7 +80,7 @@ void drawFFButton() {
    triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
    {
      stroke(white);
-     strokeWeight(4.75);
+     strokeWeight(2.5);
      line( ffX1, ffY1, ffX4, ffY5);
      line( ffX3, ffY3, ffX4, ffY5);
      line( ffX1, ffY2, ffX2, ffY2);
@@ -96,7 +96,7 @@ void drawRButton() {
    triangle( rX4 , rY4, rX5, rY5, rX6, rY6);
    {
      stroke(white);
-     strokeWeight(4.75);
+     strokeWeight(2.5);
      line( rX4, rY4, rX2, rY2);
      line( rX6, rY6, rX2, rY2);
      line( rX4, rY2, rX5, rY5);
@@ -107,7 +107,7 @@ void drawRButton() {
    triangle( rX1, rY1, rX2, rY2, rX3, rY3);
    {
      stroke(white);
-     strokeWeight(4.75);
+     strokeWeight(2.5);
      line( rX1, rY1, rX4, rY5);
      line( rX3, rY3, rX4, rY5);
      line( rX1, rY2, rX2, rY2);
@@ -123,7 +123,7 @@ void drawSkipButton() {
   rect (skipX4, skipY4, pauseWidth, pauseHeight);
   {
     stroke(white);
-    strokeWeight(4.75);
+    strokeWeight(2.5);
     line( skipX1, skipY2, skipX2, skipY2);
     line( skipX2, skipY2, skipX5, skipY1);
     line( skipX2, skipY2, skipX5, skipY3);
@@ -139,6 +139,17 @@ void drawBackButton() {
   fill(black);
   triangle (backX1, backY1, backX2, backY2, backX3, backY3);
   rect (backX4, backY4, -pauseWidth, pauseHeight);
+  {
+    stroke(white);
+    strokeWeight(2.5);
+    line( backX1, backY2, backX2, backY2);
+    line( backX2, backY2, backX5, backY1);
+    line( backX2, backY2, backX5, backY3);
+    line( backX5, backY2, backX4, backY1);
+    line( backX5, backY2, backX4, backY3);
+    strokeWeight(7.5);
+    stroke(red);
+  }
   fill(resetcolorDayMode) ; //Change this to ternary
 }//End drawBackButton()
 // 
@@ -151,19 +162,7 @@ void drawLoopButton() {
   triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
   {
     stroke(white);
-    strokeWeight(4.75);
-    /*
-    //line( loopX1, loopY7, loopX7, loopY8);
-    //line( loopX7,loopY8, loopX1, loopY9);
-    //line( loopX1,loopY9, loopX9, loopY8);
-    //line( loopX9, loopY8, loopX1, loopY7);
-    
-    line( loopX11, loopY11, loopX11, loopY12);
-    line( loopX11, loopY12, loopX12, loopY12);
-    line( loopX12, loopY12, loopX12, loopY11);
-    line( loopX12, loopY11, loopX11, loopY11);
-    */
-    
+    strokeWeight(2.5);
     line( loopX1, loopY7, loopX8, loopY8);
     line( loopX8, loopY8, loopX1, loopY9);
     line( loopX7, loopY8, loopX1, loopY6);
@@ -191,12 +190,20 @@ void drawLoopButton() {
     strokeWeight(7.5);
     stroke(red);
   }
-  
   fill(resetcolorDayMode) ; //Change this to ternary
   noFill() ;
   ellipse ( loopX1, loopY1, loopWidth, loopHeight);
   ellipse ( loopX2, loopY2, loopWidth2, loopHeight2);
+  fill(resetcolorDayMode) ; //Change this to ternary
+  fill(black);
   triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
+  {
+    stroke(white);
+    strokeWeight(2.5);
+    line( loopX1, loopY4, loopX4, loopY4);
+    strokeWeight(7.5);
+    stroke(red);
+  }
 }//End drawLoopButton()
 //
 void drawMuteButton() {
@@ -207,5 +214,12 @@ void drawMuteButton() {
   line ( muteX6, muteY6, muteX7, muteY7);
   line ( muteX8, muteY8, muteX9, muteY9);
   fill(resetcolorDayMode) ; //Change this to ternary
+  {
+    stroke(white);
+    strokeWeight(2.5);
+    line( muteX1, muteY2, muteX2, muteY2);
+    strokeWeight(7.5);
+    stroke(red);
+  }
 }//End drawMuteButton()
 //End Music Player Buttons
