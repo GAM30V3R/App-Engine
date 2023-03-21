@@ -6,14 +6,15 @@ void setupPopulation() {
   float musicButtonDrawY = height * 1/2;
   pauseScaleWidth = 1.0/30.0; //used to change x-size
   pauseScaleHeight = 1.0/5.5; //used to change y-axis
-  //println(pauseScaleWidth);
-  //println(pauseScaleHeight);
+  println(pauseScaleWidth);
+  println(pauseScaleHeight);
   pauseWidth = width * pauseScaleWidth;
   pauseX1 = musicButtonDrawX - pauseWidth - pauseWidth*1/2;
   pauseY1 = musicButtonDrawY;
   pauseX2 = musicButtonDrawX + pauseWidth*1/2;
   pauseY2 = pauseY1;
   pauseHeight = height * pauseScaleHeight;
+  pauseX3 = pauseX1 + pauseWidth;
   //
   stopX = pauseX1;
   stopY = musicButtonDrawY * 3/2;
@@ -109,11 +110,11 @@ void setupPopulation() {
   muteY3 = muteY1 + pauseHeight;
   muteX4 = muteX1 - (pauseWidth * 1.0);
   muteY4 = loopY4;
-  muteWidth = -stopHeight * 6/8;
+  muteWidth = -stopHeight * 5/8;
   muteHeight = stopHeight * 6/8;
   muteX5 = muteX4;
-  muteY5 = muteY3 * 6.75/4;
-  muteWidth2 = -stopHeight * 6/8;
+  muteY5 = muteY3 * 3.9/4;
+  muteWidth2 = -stopHeight * 5/8;
   muteHeight2 = -stopHeight * 6/8;
   muteX6 = muteX1;
   muteY6 = muteY1;
@@ -123,4 +124,5 @@ void setupPopulation() {
   muteY8 = muteY1;
   muteX9 = muteX6;
   muteY9 = muteY1 + pauseHeight;
+  muteX10 = muteX5 + muteWidth;
 }//End setupPopulation()
