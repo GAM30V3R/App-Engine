@@ -10,14 +10,15 @@ import ddf.minim.ugens.*;
 //
 void setup() {
   //
+  size(1000, 500); //width, height
   setupMusic();
-  //
-  songs[currentSong].loop(1); //Change the index manually
+  population();
   //
 }//End setup
 //
 void draw() {
   drawMusic();
+  drawMusicButtons();
 }//End draw
 //
 void keyPressed() {
@@ -25,6 +26,8 @@ void keyPressed() {
 
 }//End keyPressed
 //
-void mousePressed() {}//ENd mousePressed
+void mousePressed() {
+  mousePressedMusic();
+}//ENd mousePressed
 //
 //End MAIN Program

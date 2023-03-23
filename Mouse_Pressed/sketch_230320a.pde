@@ -153,112 +153,78 @@ void draw() {
   //STOP Button: button is the logical rectangle
   //Hoverover Feature
   strokeWeight(7.5);
+  
   {
-    if (mouseX>=stopX && mouseX<=stopX+stopWidth && mouseY>=stopY && mouseY<=stopY+stopHeight)
-    {
+    if (mouseX>=stopX && mouseX<=stopX+stopWidth && mouseY>=stopY && mouseY<=stopY+stopHeight) {
+      println("Hovering Over Button");
+    } else { 
+      println("");
+    }
+  }
+  {
+    if (mouseX>=pauseX1 && mouseX<=pauseX1+pauseButtonWidth && mouseY>=pauseY1 && mouseY<=pauseY1+pauseButtonHeight) {
+      println("Hovering Over Button");
+    } else { 
+      println("");
+    }
+  }
+  {
+    if (mouseX>=playX1 && mouseX<=playX1+playButtonWidth && mouseY>=playY1 && mouseY<=playY1+playButtonHeight) {
+      println("Hovering Over Button");
+    } else { 
+      println("");
+    }
+  }
+  {
+    if (mouseX>=ffX1 && mouseX<=ffX1+ffButtonWidth && mouseY>=ffY1 && mouseY<=ffY1+ffButtonHeight) {
+      println("Hovering Over Button");
+    } else { 
+      println("");
+    }
+  }
+  {
+    if (mouseX>=rX1 && mouseX<=rX1-rButtonWidth && mouseY>=rY1 && mouseY<=rY1+rButtonHeight){
     println("Hovering Over Button");
-    
-    } else
-    { 
+    } else { 
+      println("");
+    }
+  }
+  {
+    if (mouseX>=skipX1 && mouseX<=skipX1+rButtonWidth && mouseY>=rY1 && mouseY<=rY1+rButtonHeight){
+      println("Hovering Over Button");
+    } else { 
+      println("");
+    }
+  }
+  {
+    if (mouseX>=backX1 && mouseX<=backX1-backButtonWidth && mouseY>=backY1 && mouseY<=backY1+backButtonHeight){
+      println("Hovering Over Button");
+    } else { 
+      println("");
+    }
+  }
+  {
+    if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight){
+      println("Hovering Over Button");
+    } else { 
+      println("");
+    }
+  }
+  {
+    if (mouseX>=muteX7 && mouseX<=muteX7-muteButtonWidth && mouseY>=muteY1 && mouseY<=muteY1+muteButtonHeight) {
+      println("Hovering Over Button");
+    } else { 
       println("");
     }
   }
   rect(stopX, stopY, stopWidth, stopHeight);
-  
-  
-  {
-    if (mouseX>=pauseX1 && mouseX<=pauseX1+pauseButtonWidth && mouseY>=pauseY1 && mouseY<=pauseY1+pauseButtonHeight)
-    {
-    println("Hovering Over Button");
-    } else
-    { 
-      println("");
-    }
-  }
   rect(pauseX1, pauseY1, pauseButtonWidth, pauseButtonHeight);
-  
-  
-  {
-    if (mouseX>=playX1 && mouseX<=playX1+playButtonWidth && mouseY>=playY1 && mouseY<=playY1+playButtonHeight)
-    {
-    println("Hovering Over Button");
-    } else
-    { 
-      println("");
-    }
-  }
   rect(playX1, playY1, playButtonWidth, playButtonHeight);
-  
-  
-  {
-    if (mouseX>=ffX1 && mouseX<=ffX1+ffButtonWidth && mouseY>=ffY1 && mouseY<=ffY1+ffButtonHeight)
-    {
-    println("Hovering Over Button");
-    } else
-    { 
-      println("");
-    }
-  }
   rect(ffX1, ffY1, ffButtonWidth, ffButtonHeight);
-  
-  
-  {
-    if (mouseX>=rX1 && mouseX<=rX1-rButtonWidth && mouseY>=rY1 && mouseY<=rY1+rButtonHeight)
-    {
-    println("Hovering Over Button");
-    } else
-    { 
-      println("");
-    }
-  }
   rect(rX1, rY1, -rButtonWidth, rButtonHeight);
-  
-  
-  {
-    if (mouseX>=skipX1 && mouseX<=skipX1+rButtonWidth && mouseY>=rY1 && mouseY<=rY1+rButtonHeight)
-    {
-    println("Hovering Over Button");
-    } else
-    { 
-      println("");
-    }
-  }
   rect(skipX1, skipY1, skipButtonWidth, skipButtonHeight);
-  
-  
-  {
-    if (mouseX>=backX1 && mouseX<=backX1-backButtonWidth && mouseY>=backY1 && mouseY<=backY1+backButtonHeight)
-    {
-    println("Hovering Over Button");
-    } else
-    { 
-      println("");
-    }
-  }
   rect(backX1, backY1, -backButtonWidth, backButtonHeight);
-  
-  
-  {
-    if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight)
-    {
-    println("Hovering Over Button");
-    } else
-    { 
-      println("");
-    }
-  }
   rect(loopX9, loopY3, loopButtonWidth, -loopButtonHeight);
-  
-  
-  {
-    if (mouseX>=muteX7 && mouseX<=muteX7-muteButtonWidth && mouseY>=muteY1 && mouseY<=muteY1+muteButtonHeight)
-    {
-    println("Hovering Over Button");
-    } else
-    { 
-      println("");
-    }
-  }
   rect(muteX7, muteY1, -muteButtonWidth, muteButtonHeight);
   //
  
