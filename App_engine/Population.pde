@@ -8,8 +8,8 @@ void population()
   float musicButtonDrawY = height * 1/2;
   pauseScaleWidth = 1.0/30.0; //used to change x-size
   pauseScaleHeight = 1.0/5.5; //used to change y-axis
-  println(pauseScaleWidth);
-  println(pauseScaleHeight);
+  println(mouseX);
+  println(mouseY);
   
 
   pauseWidth = width * pauseScaleWidth;
@@ -24,6 +24,10 @@ void population()
   stopY = musicButtonDrawY * 3/2;
   stopWidth = pauseHeight ;
   stopHeight = pauseHeight;
+  stopX2 = stopX + (pauseHeight/2);
+  stopY2 = stopY + (pauseHeight/2);
+  stopX3 = stopX + pauseHeight;
+  stopY3 = stopY + pauseHeight;
   //
   playX1 = pauseX1 ;
   playY1 = musicButtonDrawY;
@@ -137,6 +141,7 @@ void population()
 void drawMusicButtons() {
   stroke(red);
   strokeWeight(7.5);
+  background(darkblue);
   drawPauseButton();
   drawStopButton();
   drawPlayButton ();
@@ -153,7 +158,7 @@ void drawPauseButton() {
   rect( pauseX1, pauseY1, pauseWidth, pauseHeight );
   rect( pauseX2, pauseY2, pauseWidth, pauseHeight );
   {
-    stroke(white);
+    stroke(cyan);
     strokeWeight(2.5);
     line( pauseX1, pauseY1, pauseX3, playY2 );
     line( pauseX1, playY3, pauseX3, playY2 );
@@ -169,19 +174,43 @@ void drawPauseButton() {
     stroke(red);
   }
   fill(resetcolorDayMode) ; //Change this to ternary
+  noFill() ;
+  rect( pauseX1, pauseY1, pauseWidth, pauseHeight );
+  rect( pauseX2, pauseY2, pauseWidth, pauseHeight );
 }//End drawPauseButton()
 //
 void drawStopButton() {
   fill(black);
   rect( stopX, stopY, stopWidth, stopHeight ); //Square
+  {
+    stroke(cyan);
+    strokeWeight(2.5);
+    
+    line( stopX, stopY, stopX3, stopY3);
+    line( stopX3, stopY, stopX, stopY3);
+    line( stopX, stopY2, stopX3, stopY2);
+    line( stopX2, stopY, stopX2, stopY3);
+    line( stopX, stopY, stopX3, stopY2);
+    line( stopX, stopY, stopX2, stopY3);
+    line( stopX3, stopY, stopX, stopY2);
+    line( stopX3, stopY, stopX2, stopY3);
+    line( stopX, stopY3, stopX2, stopY);
+    line( stopX, stopY3, stopX3, stopY2);
+    line( stopX3, stopY3, stopX2, stopY);
+    line( stopX3, stopY3, stopX, stopY2);
+    strokeWeight(7.5);
+    stroke(red);
+  }
   fill(resetcolorDayMode) ; //Change this to ternary
+  noFill() ;
+  rect( stopX, stopY, stopWidth, stopHeight );
 }//End drawStopButton()
 //
 void drawPlayButton() {
   fill(black);
   triangle( playX1, playY1, playX2, playY2, playX3, playY3);
   {
-    stroke(white);
+    stroke(cyan);
     strokeWeight(2.5);
     line( playX1, playY2, playX2, playY2);
     line( playX1, playY1, pauseX2, playY2);
@@ -192,13 +221,15 @@ void drawPlayButton() {
     stroke(red);
   }
   fill(resetcolorDayMode) ; //Change this to ternary
+  noFill() ;
+  triangle( playX1, playY1, playX2, playY2, playX3, playY3);
 }//End drawPlayButton()
 //
 void drawFFButton() {
    fill(black);
    triangle( ffX4, ffY4, ffX5, ffY5, ffX6, ffY6) ;
    {
-     stroke(white);
+     stroke(cyan);
      strokeWeight(2.5);
      line( ffX4, ffY4, ffX2, ffY2);
      line( ffX6, ffY6, ffX2, ffY2);
@@ -209,7 +240,7 @@ void drawFFButton() {
 
    triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
    {
-     stroke(white);
+     stroke(cyan);
      strokeWeight(2.5);
      line( ffX1, ffY1, ffX4, ffY5);
      line( ffX3, ffY3, ffX4, ffY5);
@@ -220,13 +251,17 @@ void drawFFButton() {
    }
 
    fill(resetcolorDayMode) ; //Change this to ternary
+   noFill() ;
+   triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
+   line(ffX4, ffY4, ffX5, ffY5);
+   line(ffX5, ffY5, ffX6, ffY6);
 }//End drawFFButton()
 //
 void drawRButton() {
    fill(black);
    triangle( rX4 , rY4, rX5, rY5, rX6, rY6);
    {
-     stroke(white);
+     stroke(cyan);
      strokeWeight(2.5);
      line( rX4, rY4, rX2, rY2);
      line( rX6, rY6, rX2, rY2);
@@ -236,7 +271,7 @@ void drawRButton() {
    }
    triangle( rX1, rY1, rX2, rY2, rX3, rY3);
    {
-     stroke(white);
+     stroke(cyan);
      strokeWeight(2.5);
      line( rX1, rY1, rX4, rY5);
      line( rX3, rY3, rX4, rY5);
@@ -246,6 +281,10 @@ void drawRButton() {
      stroke(red);
    }
    fill(resetcolorDayMode) ; //Change this to ternary
+   noFill() ;
+   triangle( rX1, rY1, rX2, rY2, rX3, rY3);
+   line(rX4 , rY4, rX5, rY5);
+   line(rX5, rY5, rX6, rY6);
 }//End drawReverseButton()
 //
 void drawSkipButton() {
@@ -253,7 +292,7 @@ void drawSkipButton() {
   triangle (skipX1, skipY1, skipX2, skipY2, skipX3, skipY3);
   rect (skipX4, skipY4, pauseWidth, pauseHeight);
   {
-    stroke(white);
+    stroke(cyan);
     strokeWeight(2.5);
     line( skipX1, skipY2, skipX5, skipY2);
     line( skipX2, skipY2, skipX5, skipY1);
@@ -266,6 +305,9 @@ void drawSkipButton() {
     stroke(red);
   }
   fill(resetcolorDayMode) ; //Change this to ternary
+  noFill() ;
+  triangle (skipX1, skipY1, skipX2, skipY2, skipX3, skipY3);
+  rect (skipX4, skipY4, pauseWidth, pauseHeight);
 }//End drawSkipButton()
 //
 void drawBackButton() {
@@ -273,7 +315,7 @@ void drawBackButton() {
   triangle (backX1, backY1, backX2, backY2, backX3, backY3);
   rect (backX4, backY4, -pauseWidth, pauseHeight);
   {
-    stroke(white);
+    stroke(cyan);
     strokeWeight(2.5);
     line( backX1, backY2, backX5, backY2);
     line( backX2, backY2, backX5, backY1);
@@ -286,17 +328,20 @@ void drawBackButton() {
     stroke(red);
   }
   fill(resetcolorDayMode) ; //Change this to ternary
+  noFill() ;
+  triangle (backX1, backY1, backX2, backY2, backX3, backY3);
+  rect (backX4, backY4, -pauseWidth, pauseHeight);
 }//End drawBackButton()
 // 
 void drawLoopButton() {
   fill(black);
   ellipse ( loopX1, loopY1, loopWidth, loopHeight);
-  fill(resetcolorDayMode) ; //Change this to ternary
+  fill(darkblue) ; //Change this to ternary
   ellipse ( loopX2, loopY2, loopWidth2, loopHeight2);
   fill(black);
   triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
   {
-    stroke(white);
+    stroke(cyan);
     strokeWeight(2.5);
     line( loopX1, loopY7, loopX8, loopY8);
     line( loopX8, loopY8, loopX1, loopY9);
@@ -322,23 +367,32 @@ void drawLoopButton() {
     line( loopX12, loopY12, loopX9, loopY8);
     line( loopX9, loopY8, loopX12, loopY11);
     line( loopX12, loopY11, loopX1, loopY7);
+    line(loopX12, loopY11, loopX11, loopY12);
+    line(loopX11, loopY11, loopX12, loopY12);
+    line(loopX7, loopY8, loopX9, loopY8);
+    line(loopX1, loopY7, loopX1, loopY9);
     strokeWeight(7.5);
     stroke(red);
   }
   fill(resetcolorDayMode) ; //Change this to ternary
   noFill() ;
   ellipse ( loopX1, loopY1, loopWidth, loopHeight);
+  fill(darkblue);
   ellipse ( loopX2, loopY2, loopWidth2, loopHeight2);
+  noFill();
   fill(resetcolorDayMode) ; //Change this to ternary
   fill(black);
   triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
   {
-    stroke(white);
+    stroke(cyan);
     strokeWeight(2.5);
     line( loopX1, loopY4, loopX4, loopY4);
     strokeWeight(7.5);
     stroke(red);
   }
+  noFill() ;
+  
+  triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
 }//End drawLoopButton()
 //
 void drawMuteButton() {
@@ -352,7 +406,7 @@ void drawMuteButton() {
   line ( muteX8, muteY8, muteX9, muteY9);
   fill(resetcolorDayMode) ; //Change this to ternary
   {
-    stroke(white);
+    stroke(cyan);
     strokeWeight(2.5);
     line( muteX10, muteY4, muteX5, muteY5);
     line( muteX10, muteY5, muteX4, muteY4);
@@ -361,16 +415,22 @@ void drawMuteButton() {
     line(muteX3, muteY3, muteX4, muteY4);
     line(muteX1, muteY1, muteX5, muteY5);
     line( muteX10, muteY2, muteX1, muteY2);
-    line( muteX10, muteY2, muteX1, muteY1);
-    line( muteX10, muteY2, muteX3, muteY3);
+    //line( muteX10, muteY2, muteX1, muteY1);
+    //line( muteX10, muteY2, muteX3, muteY3);
     //line( muteX10, muteY2, muteX4, muteY4);
     //line( muteX10, muteY2, muteX5, muteY5);
-    line( muteX1, muteY2, muteX4, muteY4);
-    line( muteX1, muteY2, muteX5, muteY5);
-    //line( muteX1, muteY2, muteX10, muteY4);
-    //line( muteX1, muteY2, muteX10, muteY5);
+    //line( muteX1, muteY2, muteX4, muteY4);
+    //line( muteX1, muteY2, muteX5, muteY5);
+    line( muteX1, muteY2, muteX10, muteY4);
+    line( muteX1, muteY2, muteX10, muteY5);
     strokeWeight(7.5);
     stroke(red);
   }
+  noFill() ;
+  line(muteX1, muteY1, muteX4, muteY4);
+  line(muteX3, muteY3, muteX5, muteY5);
+  rect (muteX4, muteY4, muteWidth, muteHeight);
+  rect (muteX5, muteY5, muteWidth2, muteHeight2);
+  line(muteX1, muteY1, muteX3, muteY3);
 }//End drawMuteButton()
 //End Music Player Buttons

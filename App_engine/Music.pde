@@ -1,14 +1,15 @@
 //Global Variables
 Minim minim; //creates an object to access all functions
-AudioPlayer[] songs = new AudioPlayer[4]; //creates a "Play list" variable holding MP
-AudioPlayer[] soundEffects = new AudioPlayer[4];
+AudioPlayer[] songs = new AudioPlayer[2]; //creates a "Play list" variable holding MP
+AudioPlayer[] soundEffects = new AudioPlayer[2];
 String pathway, Start_Your_Engines, The_Simplest, Wood_Door_Series, Attic_Door ;
 int currentSong= 0;
 Boolean autoPlayOn=false;
+Boolean PlayOn= false;
 //
 float pauseX1, pauseY1, pauseX2, pauseY2, pauseWidth, pauseHeight, pauseX3, pauseButtonWidth, pauseButtonHeight;
 float pauseScaleWidth, pauseScaleHeight;
-float stopX, stopY, stopWidth, stopHeight;
+float stopX, stopY, stopWidth, stopHeight, stopX2, stopY2, stopX3, stopY3;
 float playX1, playY1, playX2, playY2, playX3, playY3, playButtonWidth, playButtonHeight;
 float ffX1, ffY1, ffX2, ffY2, ffX3, ffY3, ffX4, ffY4, ffX5, ffY5, ffX6, ffY6, ffButtonWidth, ffButtonHeight;
 float rX1, rY1, rX2, rY2, rX3, rY3, rX4, rY4, rX5, rY5, rX6, rY6, rButtonWidth, rButtonHeight;
@@ -16,7 +17,7 @@ float skipX1, skipY1, skipX2, skipY2, skipX3, skipY3, skipX4, skipY4, skipX5, sk
 float backX1, backY1, backX2, backY2, backX3, backY3, backX4, backY4, backX5, backButtonWidth, backButtonHeight;
 float loopX1, loopY1, loopWidth, loopHeight, loopX2, loopY2, loopWidth2, loopHeight2, loopX3, loopY3, loopX4, loopY4, loopX5, loopY5, loopX6, loopY6, loopX7, loopY7, loopX8, loopY8, loopX9, loopY9, loopX10, loopY10, loopX11, loopY11, loopX12, loopY12, loopButtonWidth, loopButtonHeight;
 float muteX1, muteY1, muteX2, muteY2, muteX3, muteY3, muteX4, muteY4, muteX5, muteY5, muteX6, muteY6, muteX7, muteY7, muteX8, muteY8, muteX9, muteY9, muteWidth, muteHeight, muteWidth2, muteHeight2, muteX10, muteButtonWidth, muteButtonHeight;
-color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000, cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, green=#00FF00; //Night Mode Friendly
+color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, orange=#FF7F03, darkblue=#000080; //Night Mode Friendly
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly 
 //
 
@@ -29,17 +30,16 @@ void setupMusic() {
   //Reminder finish Opperating System Code to auto read pathway and files (See Operating System)
   //
   concatenationOfMusicFiles(); 
-  //there is an ERROR here 
-  songs[0] = minim.loadFile( pathway + Start_Your_Engines );
-  songs[1] = minim.loadFile( pathway + The_Simplest );
-  soundEffects[2] = minim.loadFile( pathway + Wood_Door_Series );
-  soundEffects[3] = minim.loadFile( pathway + Attic_Door );
+  songs[1] = minim.loadFile( pathway + Start_Your_Engines );
+  songs[0] = minim.loadFile( pathway + The_Simplest );
+  soundEffects[0] = minim.loadFile( pathway + Wood_Door_Series );
+  soundEffects[1] = minim.loadFile( pathway + Attic_Door );
 } //End setupMusic
 //
 void drawMusic() {
   //Debugging in CONSOLE
-  print("current Song Position:", songs[currentSong].position() );
-  println("\tEnd of Song:", songs[currentSong].length() );
+  //print("Current Song Position:", songs[currentSong].position() );
+  //println("\tEnd of Song:", songs[currentSong].length() );
   drawMusicButtons();
   /*
   stroke(red);
@@ -67,7 +67,7 @@ void keyPressedMusic() {
   if ( key =='m' || key =='M' ) mute();
   if ( key == 'f' || key == 'F' ) fastforward();
   if ( key == 'r' || key == 'R' )reverse();
-  //if ( key == 'l' || key == 'L' ) songs[currentSong].loop(1) ; //ERROR: immediately restarts song
+  if ( key == 'l' || key == 'L' ) songs[currentSong].loop(1) ; //ERROR: immediately restarts song
   if ( key == '1') singleloop();
   if ( key == '8' && key != '1') infiniteloop();
   if ( key == 's' || key == 'S' ) stop();
@@ -144,6 +144,7 @@ void infiniteloop() {
 void playpause() {
   if ( songs[currentSong].isPlaying() ) {
     songs[currentSong].pause();
+    PlayOn=false;
   } else if (songs[currentSong].position() >= songs[currentSong].length()*99/100) {
     songs[currentSong].pause();
     songs[currentSong].rewind();
