@@ -6,6 +6,15 @@ String pathway, Start_Your_Engines, The_Simplest, Wood_Door_Series, Attic_Door ;
 int currentmp3= 0;
 Boolean AutoPlayOn=false;
 Boolean PlayOn= false;
+Boolean PauseOn= false;
+Boolean StopOn= false;
+Boolean SkipForwardOn= false;
+Boolean SkipBackwardOn= false;
+Boolean On= false;
+Boolean NextOn= false;
+Boolean BackOn= false;
+Boolean LoopOn= false;
+Boolean MuteOn= false;
 //
 float pauseX1, pauseY1, pauseX2, pauseY2, pauseWidth, pauseHeight, pauseX3, pauseButtonWidth, pauseButtonHeight;
 float pauseScaleWidth, pauseScaleHeight;
@@ -41,15 +50,51 @@ void drawMusic() {
   //print("Current Song Position:", songs[currentmp3].position() );
   //println("\tEnd of Song:", songs[currentmp3].length() );
   drawMusicButtons();
-  if ( PlayOn==true ) {fill(orange);} else {fill(cyan);};
-  if (mouseX>=playX1 && mouseX<=playX1+playButtonWidth && mouseY>=playY1 && mouseY<=playY1+playButtonHeight) fill(red);
-  triangle( playX1, playY1, playX2, playY2, playX3, playY3 );
-  fill(cyan);
-  //AutoPlaymp3();
-  //
-
-
+  if ( PlayOn==true ) {stroke(orange);} else {stroke(cyan);};
+  if (mouseX>=playX1 && mouseX<=playX1+playButtonWidth && mouseY>=playY1 && mouseY<=playY1+playButtonHeight) stroke(orange);
   
+  stroke(cyan);
+  //
+  if ( StopOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
+  if (mouseX>=stopX && mouseX<=stopX+stopWidth && mouseY>=stopY && mouseY<=stopY+stopHeight) /*fill*/ stroke(orange);
+  
+  stroke(cyan);
+  
+  if ( PauseOn==true ) {/*fill*/ stroke(orange);} else {/*stroke*/ stroke(cyan);};
+  if (mouseX>=pauseX1 && mouseX<=pauseX1+pauseButtonWidth && mouseY>=pauseY1 && mouseY<=pauseY1+pauseButtonHeight)/*fill*/ stroke(orange);
+  
+  stroke(cyan);
+  
+  if ( SkipForwardOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
+  if (mouseX>=ffX1 && mouseX<=ffX1+ffButtonWidth && mouseY>=ffY1 && mouseY<=ffY1+ffButtonHeight) /*fill*/ stroke(orange);
+  
+  stroke(cyan);
+  
+  if ( SkipBackwardOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
+  if (mouseX>=rX1 && mouseX<=rX1-rButtonWidth && mouseY>=rY1 && mouseY<=rY1+rButtonHeight) /*fill*/ stroke(orange);
+  
+  stroke(cyan);
+  
+  if ( NextOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
+  if (mouseX>=skipX1 && mouseX<=skipX1+skipButtonWidth && mouseY>=skipY1 && mouseY<=skipY1+skipButtonHeight) /*fill*/ stroke(orange);
+  
+  stroke(cyan);
+  
+  if ( BackOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
+  if (mouseX>=backX1 && mouseX<=backX1-backButtonWidth && mouseY>=backY1 && mouseY<=backY1+backButtonHeight) /*fill*/ stroke(orange);
+  
+  stroke(cyan);
+  
+  if ( LoopOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
+  if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight) /*fill*/ stroke(orange);
+  
+  stroke(cyan);
+  
+  if ( MuteOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
+  if (mouseX>=muteX7 && mouseX<=muteX7-muteButtonWidth && mouseY>=muteY1 && mouseY<=muteY1+muteButtonHeight) /*fill*/ stroke(orange);
+  
+  stroke(cyan);
+  //AutoPlaymp3();
 }//End drawMusic
 //
 void keyPressedMusic() {
@@ -90,12 +135,15 @@ void mute() {
 
   if ( songs[currentmp3].isMuted(  ) ) {
     songs[currentmp3].unmute();
+    MuteOn= false;
   } else if ( songs[currentmp3].position() >= songs[currentmp3].length()*99/100 ) {
     songs[currentmp3].pause();
     songs[currentmp3].rewind();
     songs[currentmp3].unmute();
+    MuteOn= true;
   } else {
       songs[currentmp3].mute();
+      MuteOn= true;
   }
   
 }//End Mute
@@ -105,9 +153,12 @@ void stop(){
   if ( songs[currentmp3].isPlaying()) {
     songs[currentmp3].pause();
     songs[currentmp3].rewind();
+    StopOn= true;
   } else {
     songs[currentmp3].rewind();
+    StopOn= true;
   }
+  StopOn= false;
 }//End Stop
 //
 void singleloop() {
@@ -121,31 +172,39 @@ void singleloop() {
 void infiniteloop() {
   delay(songs[currentmp3].length() - songs[currentmp3].position() );
   songs[currentmp3].loop(-1); //perameter is empty or -1
+  LoopOn= true;
+  LoopOn= false;
 }
 
 void playpause() {
   if ( songs[currentmp3].isPlaying() ) {
     songs[currentmp3].pause();
     PlayOn=false;
+    PauseOn= true;
   } else if (songs[currentmp3].position() >= songs[currentmp3].length()*99/100) {
     songs[currentmp3].pause();
     songs[currentmp3].rewind();
   } else {
     songs[currentmp3].play(); //no auto rewind like loop()
     PlayOn= true;
+    PauseOn= false;
   }
 }
 
 void skipforward() {
 
   songs[currentmp3].skip( 5000 ); //parameter in milliseconds
+  SkipForwardOn= true;
   if ( songs[currentmp3].position() >= songs[currentmp3].length()*99/100 ) {
     songs[currentmp3].skip( songs[currentmp3].length() - songs[currentmp3].position());
     songs[currentmp3].pause();
   }
+  SkipForwardOn= false;
 }
 void skipbackward(){
+  SkipBackwardOn= true;
   songs[currentmp3].skip( -5000 ); //parameter in milliseconds
+  SkipBackwardOn= false;
 }
 
 void next(){
@@ -154,13 +213,17 @@ void next(){
     songs[currentmp3].pause();
     currentmp3+=1; //Still figuring this part out
     songs[currentmp3].play();
+    NextOn= true;
   } else if ( currentmp3 == songs.length - 1 ) {
     songs[currentmp3].rewind();
     currentmp3 = songs.length - songs.length;
+    NextOn= true;
   } else {
     songs[currentmp3].rewind();
     currentmp3++;
+    NextOn= true;
   }
+  NextOn= false;
 }
 
 void back() {
@@ -169,15 +232,19 @@ void back() {
     songs[currentmp3].pause();
     currentmp3-=1 ; //Still figuring this part out
     songs[currentmp3].play();
+    BackOn= true;
       //If the current song is playing, then pressing the next button
       //play the next song
   } else if ( currentmp3 == songs.length + 1 ) {
     songs[currentmp3].rewind();
     currentmp3 = songs.length - songs.length;
+    BackOn= true;
   } else {
     songs[currentmp3].rewind();
     currentmp3--;
+    BackOn= true;
   }
+  BackOn= false;
 }
 /*
 void AutoPlaymp3() {
