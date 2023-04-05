@@ -5,8 +5,7 @@
 */
 //Global Variables
 
-PFont Font;
-color redink=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, orange=#FF7F03, darkblue=#000080; //Night Mode Friendly
+//color redink=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, orange=#FF7F03, darkblue=#000080; //Night Mode Friendly
 
 
 
@@ -15,7 +14,9 @@ void setup() {
   //FlatText();
   drawRectangle();
   TextSetup(); // Must be in void setup
-  TextDraw(); // Can be anywhere
+  //Code Below
+  TextDraw(height, RedInk, CENTER, CENTER, Font, string, RectX1, RectY1, RectHeight, RectHeight ); // Can be anywhere
+  TextDraw(height, RedInk, CENTER, CENTER, Font, Alternatestring, RectX1, RectY1+height*1/4, RectHeight, RectHeight );
 }//End Setup
 
 void draw() {

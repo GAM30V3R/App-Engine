@@ -28,6 +28,8 @@ float loopX1, loopY1, loopWidth, loopHeight, loopX2, loopY2, loopWidth2, loopHei
 float muteX1, muteY1, muteX2, muteY2, muteX3, muteY3, muteX4, muteY4, muteX5, muteY5, muteX6, muteY6, muteX7, muteY7, muteX8, muteY8, muteX9, muteY9, muteWidth, muteHeight, muteWidth2, muteHeight2, muteX10, muteButtonWidth, muteButtonHeight;
 color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, orange=#FF7F03, darkblue=#000080; //Night Mode Friendly
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly 
+float buttonReferentMeasure = width*1/9.75;
+float buttonSide = buttonReferentMeasure;
 //
 
 void setupMusic() {
@@ -50,50 +52,115 @@ void drawMusic() {
   //print("Current Song Position:", songs[currentmp3].position() );
   //println("\tEnd of Song:", songs[currentmp3].length() );
   drawMusicButtons();
-  if ( PlayOn==true ) {stroke(orange);} else {stroke(cyan);};
-  if (mouseX>=playX1 && mouseX<=playX1+playButtonWidth && mouseY>=playY1 && mouseY<=playY1+playButtonHeight) stroke(orange);
-  
-  stroke(cyan);
-  //
-  if ( StopOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
-  if (mouseX>=stopX && mouseX<=stopX+stopWidth && mouseY>=stopY && mouseY<=stopY+stopHeight) /*fill*/ stroke(orange);
-  
-  stroke(cyan);
-  
+  drawPauseButton();
   if ( PauseOn==true ) {/*fill*/ stroke(orange);} else {/*stroke*/ stroke(cyan);};
   if (mouseX>=pauseX1 && mouseX<=pauseX1+pauseButtonWidth && mouseY>=pauseY1 && mouseY<=pauseY1+pauseButtonHeight)/*fill*/ stroke(orange);
-  
+
+  strokeWeight(2.5);
+  line( pauseX1, pauseY1, pauseX3, playY2 );
+  line( pauseX1, playY3, pauseX3, playY2 );
+  line( pauseX3, playY3, pauseX1, playY2 );
+  line( pauseX3, pauseY1, pauseX1, playY2 );
+  line( pauseX2, pauseY2, playX2, playY2 );
+  line( pauseX2, playY3, playX2, playY2 );
+  line( playX2, playY3, pauseX2, playY2 );
+  line( playX2, pauseY2, pauseX2, playY2 );
+  line( pauseX1, playY2, pauseX3, playY2 );
+  line( pauseX2, playY2, playX2, playY2 );
+  strokeWeight(7.5);
+  noFill() ;
+  stroke(red);
+  //rect( pauseX1, pauseY1, pauseWidth, pauseHeight );
+  //rect( pauseX2, pauseY2, pauseWidth, pauseHeight );
   stroke(cyan);
+  drawPlayButton ();
+  if ( PlayOn==true ) {stroke(orange);} else {stroke(cyan);};
+  if (mouseX>=playX1 && mouseX<=playX1+playButtonWidth && mouseY>=playY1 && mouseY<=playY1+playButtonHeight) stroke(orange);
+  strokeWeight(2.5);
+  line( playX1, playY2, playX2, playY2);
+  line( playX1, playY1, pauseX2, playY2);
+  line( playX1, playY1, pauseX3, playY2);
+  line( playX3, playY3, pauseX2, playY2);
+  line( playX3, playY3, pauseX3, playY2);
+  strokeWeight(7.5);
+  stroke(red);
+  noFill() ;
+  triangle( playX1, playY1, playX2, playY2, playX3, playY3);
+  //
+  drawStopButton();
+  if ( StopOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
+  if (mouseX>=stopX && mouseX<=stopX+stopWidth && mouseY>=stopY && mouseY<=stopY+stopHeight) /*fill*/ stroke(orange);
+  strokeWeight(2.5);
+  line( stopX, stopY, stopX3, stopY3);
+  line( stopX3, stopY, stopX, stopY3);
+  line( stopX, stopY2, stopX3, stopY2);
+  line( stopX2, stopY, stopX2, stopY3);
+  line( stopX, stopY, stopX3, stopY2);
+  line( stopX, stopY, stopX2, stopY3);
+  line( stopX3, stopY, stopX, stopY2);
+  line( stopX3, stopY, stopX2, stopY3);
+  line( stopX, stopY3, stopX2, stopY);
+  line( stopX, stopY3, stopX3, stopY2);
+  line( stopX3, stopY3, stopX2, stopY);
+  line( stopX3, stopY3, stopX, stopY2);
+  strokeWeight(7.5);
+  noFill() ;
+  stroke(red);
+  rect( stopX, stopY, stopWidth, stopHeight );
   
+  drawFFButton();
   if ( SkipForwardOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
   if (mouseX>=ffX1 && mouseX<=ffX1+ffButtonWidth && mouseY>=ffY1 && mouseY<=ffY1+ffButtonHeight) /*fill*/ stroke(orange);
+  strokeWeight(2.5);
+  line( ffX4, ffY4, ffX2, ffY2);
+  line( ffX6, ffY6, ffX2, ffY2);
+  line( ffX1, ffY2, ffX5, ffY5);
+  line( ffX1, ffY1, ffX4, ffY5);
+  line( ffX3, ffY3, ffX4, ffY5);
+  line( ffX1, ffY2, ffX2, ffY2);
+  line( ffX4, ffY4, ffX6, ffY6);
+  strokeWeight(7.5);
+  stroke(red);
+  noFill() ;
+  triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
+  line(ffX4, ffY4, ffX5, ffY5);
+  line(ffX5, ffY5, ffX6, ffY6);
+
   
-  stroke(cyan);
-  
+  drawRButton();
   if ( SkipBackwardOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
   if (mouseX>=rX1 && mouseX<=rX1-rButtonWidth && mouseY>=rY1 && mouseY<=rY1+rButtonHeight) /*fill*/ stroke(orange);
   
-  stroke(cyan);
+  stroke(red);
+  noFill() ;
   
+  drawSkipButton();
   if ( NextOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
   if (mouseX>=skipX1 && mouseX<=skipX1+skipButtonWidth && mouseY>=skipY1 && mouseY<=skipY1+skipButtonHeight) /*fill*/ stroke(orange);
   
-  stroke(cyan);
+  stroke(red);
+  noFill() ;
   
+  drawBackButton();
   if ( BackOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
   if (mouseX>=backX1 && mouseX<=backX1-backButtonWidth && mouseY>=backY1 && mouseY<=backY1+backButtonHeight) /*fill*/ stroke(orange);
   
-  stroke(cyan);
+  stroke(red);
+  noFill() ;
   
+  drawLoopButton() ;
   if ( LoopOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
   if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight) /*fill*/ stroke(orange);
   
-  stroke(cyan);
+  stroke(red);
+  noFill() ;
   
+  drawMuteButton();
   if ( MuteOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
   if (mouseX>=muteX7 && mouseX<=muteX7-muteButtonWidth && mouseY>=muteY1 && mouseY<=muteY1+muteButtonHeight) /*fill*/ stroke(orange);
   
-  stroke(cyan);
+  stroke(red);
+  noFill() ;
   //AutoPlaymp3();
 }//End drawMusic
 //

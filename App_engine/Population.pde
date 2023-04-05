@@ -19,6 +19,8 @@ void population()
   pauseY2 = pauseY1;
   pauseHeight = height * pauseScaleHeight;
   pauseX3 = pauseX1 + pauseWidth;
+  pauseButtonWidth = (pauseX2 + pauseWidth) - pauseX1 ;
+  pauseButtonHeight= buttonSide;
   //
   stopX = pauseX1;
   stopY = musicButtonDrawY * 3/2;
@@ -35,6 +37,8 @@ void population()
   playY2 = (playY1 + pauseHeight) / 1.15;
   playX3 = pauseX1 ;
   playY3 = musicButtonDrawY + pauseHeight ;
+  playButtonWidth = pauseButtonWidth;
+  playButtonHeight = pauseButtonHeight;
   //
   ffX1 = musicButtonDrawX + pauseHeight*1/3 + pauseHeight;
   ffY1 = musicButtonDrawY;
@@ -48,6 +52,8 @@ void population()
   ffY5 = playY2;
   ffX6 = ffX4;
   ffY6 = ffY3;
+  ffButtonWidth = ffX5 - ffX1;
+  ffButtonHeight= pauseButtonHeight;
   //
   rX1 = musicButtonDrawX - pauseHeight*1/3 - pauseHeight;
   rY1 = musicButtonDrawY;
@@ -61,6 +67,8 @@ void population()
   rY5 = ffY5;
   rX6 = rX4;
   rY6 = ffY6;
+  rButtonWidth = rX1 - rX5;
+  rButtonHeight= pauseButtonHeight;
   //
   skipX1 = ffX2 + pauseHeight*1/3 + pauseHeight;
   skipY1 = playY1;
@@ -71,6 +79,8 @@ void population()
   skipX4 = skipX2;
   skipY4 = pauseY1;
   skipX5 = skipX2 + (pauseWidth);
+  skipButtonWidth = skipX5 - skipX1;
+  skipButtonHeight= pauseButtonHeight;
   //
   backX1 = rX2 - pauseHeight*1/3 - pauseHeight;
   backY1 = skipY1;
@@ -81,6 +91,8 @@ void population()
   backX4 = backX2;
   backY4 = skipY4;
   backX5 = backX2 - (pauseWidth);
+  backButtonWidth = backX1 - backX5;
+  backButtonHeight = pauseButtonHeight;
   //
   loopX1 = ffX4;
   loopY1 = musicButtonDrawY * 6.75/4;
@@ -109,6 +121,8 @@ void population()
   loopY11 = loopY3 + (loopHeight/4);
   loopX12 = loopX1 - (loopWidth/2.7);
   loopY12 = loopY3 + (loopHeight/1);
+  loopButtonWidth = loopX7 - loopX9;
+  loopButtonHeight = loopY3 - loopY9;
   //
   muteX1 = musicButtonDrawX - (pauseWidth * 5);
   muteY1 = stopY;
@@ -133,6 +147,8 @@ void population()
   muteX9 = muteX6;
   muteY9 = muteY1 + pauseHeight;
   muteX10 = muteX5 + muteWidth;
+  muteButtonWidth = muteX7 - muteX10;
+  muteButtonHeight= stopHeight;
 }
 
 
@@ -142,6 +158,7 @@ void drawMusicButtons() {
   stroke(red);
   strokeWeight(7.5);
   background(darkblue);
+  /*
   drawPauseButton();
   drawStopButton();
   drawPlayButton ();
@@ -151,6 +168,7 @@ void drawMusicButtons() {
   drawBackButton();
   drawLoopButton() ;
   drawMuteButton();
+  */
 }//End drawMusicButtons() 
 
 void drawPauseButton() {
@@ -185,7 +203,6 @@ void drawStopButton() {
   {
     stroke(cyan);
     strokeWeight(2.5);
-    
     line( stopX, stopY, stopX3, stopY3);
     line( stopX3, stopY, stopX, stopY3);
     line( stopX, stopY2, stopX3, stopY2);

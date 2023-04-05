@@ -1,23 +1,38 @@
 //Global Variables
-//OldEnglishTextMT-48
+
 PFont titleFont;
-color ink, BlackInk=#000000;
+color ink, RedInk=#FF0000, BlackInk=#000000;
 int alignHorizontal, alignVertical; //Display
-//PFont Font;
+String string = "Something I'm too lazy to think of anything", Alternatestring = "I can't think of anything";
+PFont Font;
+PFont OldEnglishTextMT;
 //color red=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, orange=#FF7F03, darkblue=#000080; //Night Mode Friendly
 //color white=#FFFFFF; //Not Night Mode Friendly 
 //
 void TextSetup() {
   
-  //String[] fontList = PFont.list(); //To list all fonts available on system
-   //printArray(fontList); //For listing all possible fonts to choose, then createFont
+  String[] fontList = PFont.list(); //To list all fonts available on system
+  printArray(fontList); //For listing all possible fonts to choose, then createFont
    
-   Font = createFont ("OldEnglishTextMT-48", 55); //Verify font exists
+  Font = createFont ("Old English Text MT", 35); //Verify font exists
+  //OldEnglishTextMT = createFont ("Old English Text MT", 35); //Verify font exists
+  /*
+  Fonts I might use;
+  [280] "Old English Text MT"
+  [34] "Berlin Sans FB"
+  [35] "Berlin Sans FB Bold"
+  [36] "Berlin Sans FB Demi Bold"
+  [263] "Mistral"
+
+  [279] "OCR A Extended"
+  [381] "Snap ITC"
+
+  */
   //Tools / Create Font / Find Font / Do Not Press "OK", known bug
   
 }// End textSetup
 //
-void preTextDraw( Float height, color ink, int alignHorizontal, int alignVertical, PFont Font ) {
+void preTextDraw( float height, color ink, int alignHorizontal, int alignVertical, PFont Font ) {
   fill(ink); //Ink, hexidecimal copied from Color Selector
   textAlign (alignHorizontal, alignVertical); //Align X&Y, see Processing.org / Reference
   //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
@@ -25,7 +40,7 @@ void preTextDraw( Float height, color ink, int alignHorizontal, int alignVertica
   //textFont() has option to combine font declaration with textSize()
 }// End preTextDraw
 //
-void TextDraw( Float height, color ink, int alignHorizontal, int alignVertical, PFont Font, String string, float RectX1, float RectY1, float RectWidth, float RectHeight ) {
+void TextDraw( float height, color ink, int alignHorizontal, int alignVertical, PFont Font, String string, float RectX1, float RectY1, float RectWidth, float RectHeight ) {
   preTextDraw( height, ink, alignHorizontal, alignVertical, Font ); //Passing Par
   //textSize: textWidth(STRING), rectWidth, startingFontSize
   textSize(TextCalculator(height, string, RectWidth));
@@ -43,7 +58,7 @@ float TextCalculator( float size, String string, float RectWidth ) {
     size = size * 0.99; //size-- will do pixils
     textSize(size);
   }
-  return ;
+  return size;
 }// End textCalculator
 //
 void textKeyPressed() {
