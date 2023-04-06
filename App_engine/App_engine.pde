@@ -13,11 +13,13 @@ void setup() {
   size(1000, 500); //width, height
   setupMusic();
   population();
+  
   //
 }//End setup
 //
 void draw() {
   drawMusic();
+  drawButtonText();
   //drawMusicButtons();
 }//End draw
 //

@@ -17,16 +17,9 @@ void TextSetup() {
   Font = createFont ("Old English Text MT", 35); //Verify font exists
   //OldEnglishTextMT = createFont ("Old English Text MT", 35); //Verify font exists
   /*
-  Fonts I might use;
+  Fonts I will might use;
   [280] "Old English Text MT"
-  [34] "Berlin Sans FB"
-  [35] "Berlin Sans FB Bold"
-  [36] "Berlin Sans FB Demi Bold"
-  [263] "Mistral"
-
-  [279] "OCR A Extended"
   [381] "Snap ITC"
-
   */
   //Tools / Create Font / Find Font / Do Not Press "OK", known bug
   
