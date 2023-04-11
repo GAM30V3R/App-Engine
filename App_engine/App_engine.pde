@@ -13,7 +13,16 @@ void setup() {
   size(1000, 500); //width, height
   setupMusic();
   population();
-  
+  TextSetup();
+  //PauseTextDraw(height, RedInk, CENTER, CENTER, Font, Pausestring, pauseTextX, pauseTextY, pauseTextWidth, -pauseTextHeight); 
+  PlayTextDraw(height, RedInk, CENTER, CENTER, Font, Playstring, playTextX, playTextY, playTextWidth, -playTextHeight);
+  //StopTextDraw(height, RedInk, CENTER, CENTER, Font, Stopstring, stopX, stopY, stopWidth, stopHeight);
+  SkipForwardTextDraw(height, RedInk, CENTER, CENTER, Font, SkipForwardstring, ffTextX, ffTextY, ffTextWidth, -ffTextHeight);
+  SkipBackwardTextDraw(height, RedInk, CENTER, CENTER, Font, SkipBackwardstring, rTextX, rTextY, rTextWidth, -rTextHeight);
+  NextTextDraw(height, RedInk, CENTER, CENTER, Font, Nextstring, skipTextX, skipTextY, skipTextWidth, -skipTextHeight);
+  BackTextDraw(height, RedInk, CENTER, CENTER, Font, Backstring, backTextX, backTextY, backTextWidth, -backTextHeight);
+  LoopTextDraw(height, RedInk, CENTER, CENTER, Font, Loopstring, loopTextX,loopTextY, loopTextWidth, loopTextHeight);
+  MuteTextDraw(height, RedInk, CENTER, CENTER, Font, Mutestring, backX1, muteTextY, muteTextWidth, muteTextHeight);
   //
 }//End setup
 //

@@ -150,9 +150,9 @@ void population()
   muteButtonWidth = muteX7 - muteX10;
   muteButtonHeight= stopHeight;
   
-  pauseTextX=pauseX1;
+  pauseTextX= pauseX1;
   pauseTextY= pauseY1;
-  pauseTextWidth= pauseX3 - pauseX1;
+  pauseTextWidth= playX2 - pauseX1;
   pauseTextHeight= pauseHeight/2;
   playTextX= playX1;
   playTextY= playY1;
@@ -181,11 +181,11 @@ void population()
   backTextWidth= backX1-backX5;
   backTextHeight= pauseTextHeight;
   loopTextX= loopX7;
-  loopTextY= loopY8 + pauseTextHeight;
+  loopTextY= loopY4;
   loopTextWidth= loopX7-loopX9;
   loopTextHeight= pauseTextHeight;
   muteTextX= muteX10;
-  muteTextY= muteY2 + pauseTextHeight;
+  muteTextY= muteY4 ;
   muteTextWidth= muteX1-muteX10;
   muteTextHeight= pauseTextHeight;
 }
@@ -497,7 +497,7 @@ void drawButtonText() {
   rect(rTextX, rTextY, rTextWidth, -rTextHeight);
   rect(skipTextX, skipTextY, skipTextWidth, -skipTextHeight);
   rect(backTextX, backTextY, backTextWidth, -backTextHeight);
-  rect(loopTextX, loopTextY, loopTextWidth, -loopTextHeight);
-  rect(muteTextX, muteTextY, -muteTextWidth, -muteTextHeight);
+  rect(loopTextX, loopTextY, loopTextWidth, loopTextHeight);
+  rect(muteTextX, muteTextY, -muteTextWidth, muteTextHeight);
 }
 //End Music Player Buttons
