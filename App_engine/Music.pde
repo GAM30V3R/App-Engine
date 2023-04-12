@@ -15,6 +15,7 @@ Boolean NextOn= false;
 Boolean BackOn= false;
 Boolean LoopOn= false;
 Boolean MuteOn= false;
+Boolean ShowPlay = true;
 //
 float pauseX1, pauseY1, pauseX2, pauseY2, pauseWidth, pauseHeight, pauseX3, pauseButtonWidth, pauseButtonHeight, pauseTextX, pauseTextY, pauseTextWidth, pauseTextHeight  ;
 float pauseScaleWidth, pauseScaleHeight;
@@ -51,42 +52,47 @@ void drawMusic() {
   //Debugging in CONSOLE
   //print("Current Song Position:", songs[currentmp3].position() );
   //println("\tEnd of Song:", songs[currentmp3].length() );
-  drawMusicButtons();
+  drawMusicBackground();
   
-  drawPauseButton();
-  if ( PauseOn==true ) {/*fill*/ stroke(orange);} else {/*stroke*/ stroke(cyan);};
-  if (mouseX>=pauseX1 && mouseX<=playX2 && mouseY>=pauseY1 && mouseY<=playY3)/*fill*/ stroke(orange);
 
-  strokeWeight(2.5);
-  line( pauseX1, pauseY1, pauseX3, playY2 );
-  line( pauseX1, playY3, pauseX3, playY2 );
-  line( pauseX3, playY3, pauseX1, playY2 );
-  line( pauseX3, pauseY1, pauseX1, playY2 );
-  line( pauseX2, pauseY2, playX2, playY2 );
-  line( pauseX2, playY3, playX2, playY2 );
-  line( playX2, playY3, pauseX2, playY2 );
-  line( playX2, pauseY2, pauseX2, playY2 );
-  line( pauseX1, playY2, pauseX3, playY2 );
-  line( pauseX2, playY2, playX2, playY2 );
-  strokeWeight(7.5);
-  noFill() ;
-  stroke(red);
-  //rect( pauseX1, pauseY1, pauseWidth, pauseHeight );
-  //rect( pauseX2, pauseY2, pauseWidth, pauseHeight );
-  stroke(cyan);
-  drawPlayButton ();
-  if ( PlayOn==true ) {stroke(orange);} else {stroke(cyan);};
-  if (mouseX>=playX1 && mouseX<=playX2 && mouseY>=playY1 && mouseY<=playY3) stroke(orange);
-  strokeWeight(2.5);
-  line( playX1, playY2, playX2, playY2);
-  line( playX1, playY1, pauseX2, playY2);
-  line( playX1, playY1, pauseX3, playY2);
-  line( playX3, playY3, pauseX2, playY2);
-  line( playX3, playY3, pauseX3, playY2);
-  strokeWeight(7.5);
-  stroke(red);
-  noFill() ;
-  triangle( playX1, playY1, playX2, playY2, playX3, playY3);
+  if (ShowPlay= false){
+    drawPauseButton();
+    if ( PauseOn==true ) { stroke(orange);} else { stroke(cyan);};
+    if (mouseX>=pauseX1 && mouseX<=playX2 && mouseY>=pauseY1 && mouseY<=playY3) stroke(orange);
+  
+    strokeWeight(2.5);
+    line( pauseX1, pauseY1, pauseX3, playY2 );
+    line( pauseX1, playY3, pauseX3, playY2 );
+    line( pauseX3, playY3, pauseX1, playY2 );
+    line( pauseX3, pauseY1, pauseX1, playY2 );
+    line( pauseX2, pauseY2, playX2, playY2 );
+    line( pauseX2, playY3, playX2, playY2 );
+    line( playX2, playY3, pauseX2, playY2 );
+    line( playX2, pauseY2, pauseX2, playY2 );
+    line( pauseX1, playY2, pauseX3, playY2 );
+    line( pauseX2, playY2, playX2, playY2 );
+    strokeWeight(7.5);
+    noFill() ;
+    stroke(red);
+    //rect( pauseX1, pauseY1, pauseWidth, pauseHeight );
+    //rect( pauseX2, pauseY2, pauseWidth, pauseHeight );
+    stroke(cyan);
+  } else {
+    drawPlayButton ();
+    if ( PlayOn==true ) {stroke(orange);} else {stroke(cyan);};
+    if (mouseX>=playX1 && mouseX<=playX2 && mouseY>=playY1 && mouseY<=playY3) stroke(orange);
+    strokeWeight(2.5);
+    line( playX1, playY2, playX2, playY2);
+    line( playX1, playY1, pauseX2, playY2);
+    line( playX1, playY1, pauseX3, playY2);
+    line( playX3, playY3, pauseX2, playY2);
+    line( playX3, playY3, pauseX3, playY2);
+    strokeWeight(7.5);
+    stroke(red);
+    noFill() ;
+    triangle( playX1, playY1, playX2, playY2, playX3, playY3);
+  }
+
   //
   drawStopButton();
   if ( StopOn==true ) {/*fill*/ stroke(orange);} else {/*fill*/ stroke(cyan);};
@@ -391,6 +397,52 @@ void back() {
   }
   BackOn= false;
 }
+void ShowPause() {
+  if (songs[currentmp3].isPlaying()){
+    ShowPlay= false;
+  } else {
+    ShowPlay= true;
+  }
+}
+/*if (ShowPause= true){
+    drawPauseButton();
+    if ( PauseOn==true ) { stroke(orange);} else { stroke(cyan);};
+    if (mouseX>=pauseX1 && mouseX<=playX2 && mouseY>=pauseY1 && mouseY<=playY3) stroke(orange);
+  
+    strokeWeight(2.5);
+    line( pauseX1, pauseY1, pauseX3, playY2 );
+    line( pauseX1, playY3, pauseX3, playY2 );
+    line( pauseX3, playY3, pauseX1, playY2 );
+    line( pauseX3, pauseY1, pauseX1, playY2 );
+    line( pauseX2, pauseY2, playX2, playY2 );
+    line( pauseX2, playY3, playX2, playY2 );
+    line( playX2, playY3, pauseX2, playY2 );
+    line( playX2, pauseY2, pauseX2, playY2 );
+    line( pauseX1, playY2, pauseX3, playY2 );
+    line( pauseX2, playY2, playX2, playY2 );
+    strokeWeight(7.5);
+    noFill() ;
+    stroke(red);
+    //rect( pauseX1, pauseY1, pauseWidth, pauseHeight );
+    //rect( pauseX2, pauseY2, pauseWidth, pauseHeight );
+    stroke(cyan);
+  } else {
+    drawPlayButton ();
+    if ( PlayOn==true ) {stroke(orange);} else {stroke(cyan);};
+    if (mouseX>=playX1 && mouseX<=playX2 && mouseY>=playY1 && mouseY<=playY3) stroke(orange);
+    strokeWeight(2.5);
+    line( playX1, playY2, playX2, playY2);
+    line( playX1, playY1, pauseX2, playY2);
+    line( playX1, playY1, pauseX3, playY2);
+    line( playX3, playY3, pauseX2, playY2);
+    line( playX3, playY3, pauseX3, playY2);
+    strokeWeight(7.5);
+    stroke(red);
+    noFill() ;
+    triangle( playX1, playY1, playX2, playY2, playX3, playY3);
+  }
+}
+*/
 /*
 void AutoPlaymp3() {
   if ( AutoPlayOn ) {

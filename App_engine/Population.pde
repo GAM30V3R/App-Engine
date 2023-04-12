@@ -191,7 +191,7 @@ void population()
 }
 
 
-void drawMusicButtons() {
+void drawMusicBackground() {
   stroke(red);
   strokeWeight(7.5);
   background(darkblue);
@@ -279,6 +279,12 @@ void drawPlayButton() {
   triangle( playX1, playY1, playX2, playY2, playX3, playY3);
 }//End drawPlayButton()
 //
+
+
+
+
+
+
 void drawFFButton() {
    fill(black);
    triangle( ffX4, ffY4, ffX5, ffY5, ffX6, ffY6) ;
@@ -498,6 +504,6 @@ void drawButtonText() {
   rect(skipTextX, skipTextY, skipTextWidth, -skipTextHeight);
   rect(backTextX, backTextY, backTextWidth, -backTextHeight);
   rect(loopTextX, loopTextY, loopTextWidth, loopTextHeight);
-  rect(muteTextX, muteTextY, -muteTextWidth, muteTextHeight);
+  rect(muteTextX, muteTextY, muteTextWidth, muteTextHeight);
 }
 //End Music Player Buttons

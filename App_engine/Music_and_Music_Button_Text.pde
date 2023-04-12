@@ -22,7 +22,6 @@ void TextSetup() {
   [381] "Snap ITC"
   */
   //Tools / Create Font / Find Font / Do Not Press "OK", known bug
-  
 }// End textSetup
 //
 void preTextDraw( float height, color ink, int alignHorizontal, int alignVertical, PFont Font ) {
@@ -47,15 +46,15 @@ void PlayTextDraw( float height, color ink, int alignHorizontal, int alignVertic
   text(Playstring, playTextX, playTextY, playTextWidth, playTextHeight);
   TextReset();
 }// End textDraw
-/*
+
 void StopTextDraw( float height, color ink, int alignHorizontal, int alignVertical, PFont Font, String Stopstring, float stopX, float stopY, float stopWidth, float stopHeight) {
   preTextDraw( height, ink, alignHorizontal, alignVertical, Font ); //Passing Par
   //textSize: textWidth(STRING), rectWidth, startingFontSize
-  textSize(TextCalculator(height, Stopstring, stopTextWidth));
-  text(Stopstring, stopTextX, stopTextY, stopTextWidth, stopTextHeight);
+  textSize(TextCalculator(height, Stopstring, stopWidth));
+  text(Stopstring, stopX, stopY, stopWidth, stopHeight);
   TextReset();
 }// End textDraw
-*/
+
 void SkipForwardTextDraw( float height, color ink, int alignHorizontal, int alignVertical, PFont Font, String SkipForwardstring, float ffTextX, float ffTextY, float ffTextWidth, float ffTextHeight) {
   preTextDraw( height, ink, alignHorizontal, alignVertical, Font ); //Passing Par
   //textSize: textWidth(STRING), rectWidth, startingFontSize
