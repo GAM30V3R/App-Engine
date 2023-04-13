@@ -21,9 +21,9 @@ void draw() {
   drawMusic();
   drawButtonText();
   PlayTextDraw(height, RedInk, CENTER, CENTER, Font, Playstring, playTextX, playTextY, playTextWidth, -playTextHeight);
-  StopTextDraw(height, RedInk, CENTER, CENTER, Font, Stopstring, stopX, stopY, stopWidth, stopHeight);
+  StopTextDraw(height, RedInk, CENTER, CENTER, Font, Stopstring, stopX, stopY2, stopWidth, stopHeight*25/20);
   SkipForwardTextDraw(height, RedInk, CENTER, CENTER, Font, SkipForwardstring, ffTextX, ffTextY, ffTextWidth, -ffTextHeight);
-  SkipBackwardTextDraw(height, RedInk, CENTER, CENTER, Font, SkipBackwardstring, rTextX, rTextY, rTextWidth, -rTextHeight);
+  SkipBackwardTextDraw(height, RedInk, CENTER, CENTER, Font, SkipBackwardstring, rX5, rY1 - rTextHeight, rTextWidth, rTextHeight);
   NextTextDraw(height, RedInk, CENTER, CENTER, Font, Nextstring, skipTextX, skipTextY, skipTextWidth, -skipTextHeight);
   BackTextDraw(height, RedInk, CENTER, CENTER, Font, Backstring, backTextX, backTextY, backTextWidth, -backTextHeight);
   LoopTextDraw(height, RedInk, CENTER, CENTER, Font, Loopstring, loopTextX,loopTextY, loopTextWidth, loopTextHeight);

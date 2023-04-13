@@ -189,12 +189,24 @@ void population()
   muteTextWidth= muteX1-muteX10;
   muteTextHeight= pauseTextHeight;
 }
-
+void gradiant() {
+ noStroke();
+ colorMode(RGB, 255, 0, 0);
+ for (int i = 0; i < 1000; i++) {
+   for (int j = 0; j < 500; j++) {
+     stroke(i, 0, 0);
+     point(i, i);
+     line(backX5, ffY2, skipX5, ffY2);
+    }
+  } 
+  
+}
 
 void drawMusicBackground() {
-  stroke(red);
+  //stroke(red);
   strokeWeight(7.5);
   background(darkblue);
+  gradiant();
   /*
   drawPauseButton();
   drawStopButton();
@@ -494,16 +506,18 @@ void drawMuteButton() {
   line(muteX1, muteY1, muteX3, muteY3);
 }//End drawMuteButton()
 void drawButtonText() {
-  stroke(red);
+  stroke(blue);
   strokeWeight(2.5);
+  noFill();
   rect(pauseTextX, pauseTextY, pauseTextWidth, -pauseTextHeight);
   rect(playTextX, playTextY, playTextWidth, -playTextHeight);
   //rect();
   rect(ffTextX, ffTextY, ffTextWidth, -ffTextHeight);
-  rect(rTextX, rTextY, rTextWidth, -rTextHeight);
+  rect(rX5, rY1 - rTextHeight , rTextWidth, rTextHeight);
   rect(skipTextX, skipTextY, skipTextWidth, -skipTextHeight);
   rect(backTextX, backTextY, backTextWidth, -backTextHeight);
   rect(loopTextX, loopTextY, loopTextWidth, loopTextHeight);
-  rect(muteTextX, muteTextY, muteTextWidth, muteTextHeight);
+  rect(muteTextX, muteTextY, -muteTextWidth, muteTextHeight);
 }
+
 //End Music Player Buttons
