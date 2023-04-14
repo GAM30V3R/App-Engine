@@ -189,24 +189,25 @@ void population()
   muteTextWidth= muteX1-muteX10;
   muteTextHeight= pauseTextHeight;
 }
+/*
 void gradiant() {
  noStroke();
  colorMode(RGB, 255, 0, 0);
- for (int i = 0; i < 1000; i++) {
-   for (int j = 0; j < 500; j++) {
-     stroke(i, 0, 0);
-     point(i, i);
-     line(backX5, ffY2, skipX5, ffY2);
+ for (int i = int(playX1) ; i < int(skipX2); i++) {
+   for (int j = int(playY1); j < int(playY2); j++) {
+     stroke(i, j, 0);
+     point(i, j);
+     line(i, j, i, j);
     }
   } 
   
 }
-
+*/
 void drawMusicBackground() {
-  //stroke(red);
+
   strokeWeight(7.5);
   background(darkblue);
-  gradiant();
+  //gradiant();
   /*
   drawPauseButton();
   drawStopButton();
@@ -218,7 +219,7 @@ void drawMusicBackground() {
   drawLoopButton() ;
   drawMuteButton();
   */
-}//End drawMusicButtons() 
+}//End drawMusicBackground() 
 
 void drawPauseButton() {
   fill(black);

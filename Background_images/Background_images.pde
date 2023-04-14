@@ -9,7 +9,7 @@ PImage Pic;
 float Space = 0.0, picX_Adjusted = 0.0, picY_Adjusted = 0.0;
 float PicWidthAdjusted = 0.0, PicHeightAdjusted = 0.0; //If needs a previous value
 //Boolean nightMode = false;
-Boolean ImageCenter = true, ImageRightBottom = false; 
+Boolean ImageCenter = false, ImageRightBottom = false; 
 size(1000, 750); //landscape 480, 360
 appWidth = width;
 appHeight =height ;
@@ -28,27 +28,34 @@ String upFolder= "..";
  Pic = loadImage(upFolder+openFolder+Images+openFolder+FileName);
  */
 Pic = loadImage("../Images/0.jpg");
-int PicWidth = 480; //Original Dimention 1280
-int PicHeight = 360; //Original Dimention 720
+int PicWidth = 480; //Original Dimention 1280 or 480
+int PicHeight = 360; //Original Dimention 720 or 360
 int LargerDimension, SmallerDimension;
 float ImageWidthRatio, ImageHeightRatio;
 if ( PicWidth >= PicHeight ) { //TRUE if its Landscape ore square
   LargerDimension = PicWidth;
   SmallerDimension = PicHeight;
   ImageHeightRatio = float (SmallerDimension) / float (LargerDimension); //>=1
+  
   PicWidthAdjusted = BackgroundimageWidth; //compressed
   PicHeightAdjusted = BackgroundimageWidth * ImageHeightRatio;
-  picX_Adjusted = BackgroundimageWidth;
-  picY_Adjusted = BackgroundimageY;
+  
   Space = BackgroundimageHeight - PicHeightAdjusted;
+  
+  picX_Adjusted = BackgroundimageX;
+  picY_Adjusted = BackgroundimageY;
+  
   if (ImageCenter==true) picY_Adjusted = BackgroundimageY + Space*1/2;
   if (ImageRightBottom==true ) picY_Adjusted = BackgroundimageY + Space*1/2;
+  
   if (PicHeightAdjusted > BackgroundimageHeight) {//ERROR Catch: adjusted Height is Bigger then 
     PicHeightAdjusted = BackgroundimageHeight;
     PicWidthAdjusted = PicWidthAdjusted * ImageHeightRatio;
-    picX_Adjusted = BackgroundimageWidth;
+    
+    Space = BackgroundimageWidth - PicWidthAdjusted;
+    
+    picX_Adjusted = BackgroundimageX;
     picY_Adjusted = BackgroundimageY;
-    Space = BackgroundimageHeight - PicHeightAdjusted;
     if (ImageCenter==true) picX_Adjusted = BackgroundimageX + Space*1/2;
     if (ImageRightBottom==true ) picX_Adjusted = BackgroundimageX + Space*1/2;
   }
@@ -58,13 +65,22 @@ if ( PicWidth >= PicHeight ) { //TRUE if its Landscape ore square
   ImageWidthRatio = float (SmallerDimension) / float (LargerDimension);
   PicHeightAdjusted = BackgroundimageHeight;
   PicWidthAdjusted = BackgroundimageHeight * ImageWidthRatio;
+  
   Space = BackgroundimageWidth - PicWidthAdjusted;
+  
+  picX_Adjusted = BackgroundimageX;
+  picY_Adjusted = BackgroundimageY;
   if (ImageCenter==true) picX_Adjusted = BackgroundimageX + Space*1/2;
   if (ImageRightBottom==true ) picX_Adjusted = BackgroundimageX + Space*1/2;
+  
   if (PicWidthAdjusted > BackgroundimageWidth) {//ERROR Catch: adjusted Height is Bigger then 
     PicWidthAdjusted = BackgroundimageWidth;
     PicHeightAdjusted = PicHeightAdjusted * ImageWidthRatio;
     
+    Space = BackgroundimageHeight - PicHeightAdjusted;
+    
+    picX_Adjusted = BackgroundimageX;
+    picY_Adjusted = BackgroundimageY;
     if (ImageCenter==true) picY_Adjusted = BackgroundimageY + Space*1/2;
     if (ImageRightBottom==true ) picY_Adjusted = BackgroundimageY + Space*1/2;
   }
