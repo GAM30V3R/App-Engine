@@ -14,12 +14,18 @@ void TextSetup() {
   String[] fontList = PFont.list(); //To list all fonts available on system
   printArray(fontList); //For listing all possible fonts to choose, then createFont
    
-  Font = createFont ("Old English Text MT", 35); //Verify font exists
+  Font = createFont ("Old English Text MT", 25); //Verify font exists
   //OldEnglishTextMT = createFont ("Old English Text MT", 35); //Verify font exists
   /*
   Fonts I will might use;
   [280] "Old English Text MT"
   [381] "Snap ITC"
+  Parchment
+  Algerian
+  Mistral
+  [34] "Berlin Sans FB"
+  [35] "Berlin Sans FB Bold"
+  [36] "Berlin Sans FB Demi Bold"
   */
   //Tools / Create Font / Find Font / Do Not Press "OK", known bug
 }// End textSetup

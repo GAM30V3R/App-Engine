@@ -28,7 +28,6 @@ float backX1, backY1, backX2, backY2, backX3, backY3, backX4, backY4, backX5, ba
 float loopX1, loopY1, loopWidth, loopHeight, loopX2, loopY2, loopWidth2, loopHeight2, loopX3, loopY3, loopX4, loopY4, loopX5, loopY5, loopX6, loopY6, loopX7, loopY7, loopX8, loopY8, loopX9, loopY9, loopX10, loopY10, loopX11, loopY11, loopX12, loopY12, loopButtonWidth, loopButtonHeight, loopTextX, loopTextY, loopTextWidth, loopTextHeight ;
 float muteX1, muteY1, muteX2, muteY2, muteX3, muteY3, muteX4, muteY4, muteX5, muteY5, muteX6, muteY6, muteX7, muteY7, muteX8, muteY8, muteX9, muteY9, muteWidth, muteHeight, muteWidth2, muteHeight2, muteX10, muteButtonWidth, muteButtonHeight, muteTextX, muteTextY, muteTextWidth, muteTextHeight ;
 color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, bluehalfcyan=#0080FF, bluethirdcyan=#0080FF, white=#FFFFFF, orange=#FFAA00, darkblue=#000080; //Night Mode Friendly
-color darkred1=#AA0000, darkred2=#550000, darkcyan1=#00AAAA, darkcyan2=#005555, darkorange=#805500;
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly 
 float buttonReferentMeasure = width*1/9.75;
 float buttonSide = buttonReferentMeasure;
@@ -55,9 +54,7 @@ void drawMusic() {
   //println("\tEnd of Song:", songs[currentmp3].length() );
   drawMusicBackground();
   
-  //stroke(darkred2);
-  //stroke(darkred1);
-  //stroke(red);
+
   if (ShowPlay= false){
     drawPauseButton();
     if ( PauseOn==true ) { stroke(orange);} else { stroke(cyan);};
@@ -76,7 +73,7 @@ void drawMusic() {
     line( pauseX2, playY2, playX2, playY2 );
     strokeWeight(7.5);
     noFill() ;
-    stroke(darkred2);
+    stroke(red);
     rect( pauseX1, pauseY1, pauseWidth, pauseHeight );
     rect( pauseX2, pauseY2, pauseWidth, pauseHeight );
     stroke(cyan);
@@ -91,7 +88,7 @@ void drawMusic() {
     line( playX3, playY3, pauseX2, playY2);
     line( playX3, playY3, pauseX3, playY2);
     strokeWeight(7.5);
-    stroke(darkred2);
+    stroke(red);
     noFill() ;
     triangle( playX1, playY1, playX2, playY2, playX3, playY3);
   }
@@ -115,7 +112,7 @@ void drawMusic() {
   line( stopX3, stopY3, stopX, stopY2);
   strokeWeight(7.5);
   noFill() ;
-  stroke(darkred2);
+  stroke(red);
   rect( stopX, stopY, stopWidth, stopHeight );
   
   drawFFButton();
@@ -130,7 +127,7 @@ void drawMusic() {
   line( ffX1, ffY2, ffX2, ffY2);
   line( ffX4, ffY4, ffX6, ffY6);
   strokeWeight(7.5);
-  stroke(darkred2);
+  stroke(red);
   noFill() ;
   triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
   line(ffX4, ffY4, ffX5, ffY5);
@@ -149,7 +146,7 @@ void drawMusic() {
   line( rX1, rY2, rX2, rY2);
   line( rX4, rY4, rX6, rY6);  
   strokeWeight(7.5);
-  stroke(darkred2);
+  stroke(red);
   noFill() ;
   triangle( rX1, rY1, rX2, rY2, rX3, rY3);
   line(rX4 , rY4, rX5, rY5);
@@ -166,7 +163,7 @@ void drawMusic() {
   line( skipX4, skipY4, skipX5, skipY3);
   line( skipX5, skipY4, skipX4, skipY3);
   strokeWeight(7.5);
-  stroke(darkred2);
+  stroke(red);
   noFill() ;
   triangle (skipX1, skipY1, skipX2, skipY2, skipX3, skipY3);
   rect (skipX4, skipY4, pauseWidth, pauseHeight);
@@ -182,7 +179,7 @@ void drawMusic() {
   line( backX4, backY4, backX5, backY3);
   line( backX5, backY4, backX4, backY3);
   strokeWeight(7.5);
-  stroke(darkred2);
+  stroke(red);
   noFill() ;
   triangle (backX1, backY1, backX2, backY2, backX3, backY3);
   rect (backX4, backY4, -pauseWidth, pauseHeight);
@@ -219,7 +216,7 @@ void drawMusic() {
   line(loopX7, loopY8, loopX9, loopY8);
   line(loopX1, loopY7, loopX1, loopY9);
   strokeWeight(7.5);
-  stroke(darkred2);
+  stroke(red);
   noFill() ;
   ellipse ( loopX1, loopY1, loopWidth, loopHeight);
   fill(darkblue);
@@ -241,7 +238,7 @@ void drawMusic() {
   line( muteX1, muteY2, muteX10, muteY4);
   line( muteX1, muteY2, muteX10, muteY5);
   strokeWeight(7.5);
-  stroke(darkred2);
+  stroke(red);
   noFill() ;
   line(muteX1, muteY1, muteX4, muteY4);
   line(muteX3, muteY3, muteX5, muteY5);

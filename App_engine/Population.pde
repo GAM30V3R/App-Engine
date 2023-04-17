@@ -153,7 +153,7 @@ void population()
   pauseTextX= pauseX1;
   pauseTextY= pauseY1;
   pauseTextWidth= playX2 - pauseX1;
-  pauseTextHeight= pauseHeight/2;
+  pauseTextHeight= pauseHeight/1.75;
   playTextX= playX1;
   playTextY= playY1;
   playTextWidth= playX2-playX1;
