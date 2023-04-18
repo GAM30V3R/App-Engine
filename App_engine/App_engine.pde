@@ -11,6 +11,8 @@ import ddf.minim.ugens.*;
 void setup() {
   //
   size(1000, 500); //width, height
+  
+  drawMusicBackground();
   setupMusic();
   population();
   TextSetup();

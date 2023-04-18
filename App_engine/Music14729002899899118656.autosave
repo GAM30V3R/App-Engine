@@ -16,11 +16,8 @@ Boolean BackOn= false;
 Boolean LoopOn= false;
 Boolean MuteOn= false;
 Boolean ShowPlay = true, ShowPause = false;
-Boolean infiniteloopon = false, singleloopon = false;
-Boolean YEE = true;
 
 //
-int Width = width, Height = height;
 float pauseX1, pauseY1, pauseX2, pauseY2, pauseWidth, pauseHeight, pauseX3, pauseButtonWidth, pauseButtonHeight, pauseTextX, pauseTextY, pauseTextWidth, pauseTextHeight  ;
 float pauseScaleWidth, pauseScaleHeight;
 float stopX, stopY, stopWidth, stopHeight, stopX2, stopY2, stopX3, stopY3, stopTextX, stopTextY, stopTextWidth, stopTextHeight ;
@@ -31,7 +28,7 @@ float skipX1, skipY1, skipX2, skipY2, skipX3, skipY3, skipX4, skipY4, skipX5, sk
 float backX1, backY1, backX2, backY2, backX3, backY3, backX4, backY4, backX5, backButtonWidth, backButtonHeight, backTextX, backTextY, backTextWidth, backTextHeight ;
 float loopX1, loopY1, loopWidth, loopHeight, loopX2, loopY2, loopWidth2, loopHeight2, loopX3, loopY3, loopX4, loopY4, loopX5, loopY5, loopX6, loopY6, loopX7, loopY7, loopX8, loopY8, loopX9, loopY9, loopX10, loopY10, loopX11, loopY11, loopX12, loopY12, loopButtonWidth, loopButtonHeight, loopTextX, loopTextY, loopTextWidth, loopTextHeight ;
 float muteX1, muteY1, muteX2, muteY2, muteX3, muteY3, muteX4, muteY4, muteX5, muteY5, muteX6, muteY6, muteX7, muteY7, muteX8, muteY8, muteX9, muteY9, muteWidth, muteHeight, muteWidth2, muteHeight2, muteX10, muteButtonWidth, muteButtonHeight, muteTextX, muteTextY, muteTextWidth, muteTextHeight ;
-color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, bluehalfcyan=#0080FF, white=#FFFFFF, orange=#FFAA00, darkblue=#000080, darkblue2=#000055, darkbluehalfcyan=#004080  ; //Night Mode Friendly
+color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, orange=#FFAA00, darkblue=#000080, darkblue2=#000055; //Night Mode Friendly
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly 
 float buttonReferentMeasure = width*1/9.75;
 float buttonSide = buttonReferentMeasure;
@@ -54,10 +51,10 @@ void setupMusic() {
 //
 void drawMusic() {
   //Debugging in CONSOLE
-  if (YEE == true) Image();
   //print("Current Song Position:", songs[currentmp3].position() );
   //println("\tEnd of Song:", songs[currentmp3].length() );
-  //ShowPlayandPause();
+  drawMusicBackground();
+  
   
   if (ShowPlay == false && ShowPause == true){
     drawPauseButton();
@@ -250,7 +247,7 @@ void drawMusic() {
   rect (muteX4, muteY4, muteWidth, muteHeight);
   rect (muteX5, muteY5, muteWidth2, muteHeight2);
   line(muteX1, muteY1, muteX3, muteY3);
-  AutoPlaymp3();
+  //AutoPlaymp3();
 }//End drawMusic
 //
 void keyPressedMusic() {
@@ -276,12 +273,7 @@ void mousePressedMusic() {
   if (mouseX>=rX5 && mouseX<=rX1 && mouseY>=rY1 && mouseY<=rY3) skipbackward();
   if (mouseX>=skipX1 && mouseX<=skipX5 && mouseY>=skipY1 && mouseY<=skipY3) next();
   if (mouseX>=backX5 && mouseX<=backX1 && mouseY>=backY1 && mouseY<=backY3) back();
-  if (infiniteloopon == true) {
-    if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight) infiniteloop();
-  }
-  if (singleloopon == true) {
-    if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight) singleloop();
-  }
+  if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight) infiniteloop();
   if (mouseX>=muteX10 && mouseX<=muteX7 && mouseY>=stopY && mouseY<=stopY+stopHeight) mute();
 }//End mousePressedMusic
 void concatenationOfMusicFiles() {
@@ -337,8 +329,6 @@ void singleloop() {
   //ERROR: delay stops all player functions, computer doesn't recognize if
   //       song is playing
   songs[currentmp3].loop(0); //perameter is empty or -1
-  infiniteloopon = false;
-  singleloopon = true;
 }
 
 void infiniteloop() {
@@ -346,8 +336,6 @@ void infiniteloop() {
   songs[currentmp3].loop(-1); //perameter is empty or -1
   LoopOn= true;
   LoopOn= false;
-  infiniteloopon = true;
-  singleloopon = false;
 }
 
 void playpause() {
@@ -466,7 +454,7 @@ void ShowPause() {
   }
 }
 */
-
+/*
 void AutoPlaymp3() {
   if ( AutoPlayOn ) {
     if(songs[currentmp3].position() >= songs[currentmp3].length()*99/100) {
@@ -493,5 +481,5 @@ void AutoPlay(){
     print("Autoplay off");
   }
 }//End Autoplay
-
+*/
 //End Music SubProgram
