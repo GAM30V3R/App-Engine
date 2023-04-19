@@ -17,7 +17,7 @@ Boolean LoopOn= false;
 Boolean MuteOn= false;
 Boolean ShowPlay = true, ShowPause = false;
 Boolean infiniteloopon = false, singleloopon = false;
-Boolean YEE = true;
+Boolean YEE = false;
 
 //
 int Width = width, Height = height;
@@ -35,6 +35,7 @@ color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000,  cyan=#00FFFF, bl
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly 
 float buttonReferentMeasure = width*1/9.75;
 float buttonSide = buttonReferentMeasure;
+float YEEx, YEEy, YEEWidth;
 //
 
 void setupMusic() {
@@ -54,7 +55,6 @@ void setupMusic() {
 //
 void drawMusic() {
   //Debugging in CONSOLE
-  if (YEE == true) Image();
   //print("Current Song Position:", songs[currentmp3].position() );
   //println("\tEnd of Song:", songs[currentmp3].length() );
   //ShowPlayandPause();
@@ -263,9 +263,10 @@ void keyPressedMusic() {
   if ( key == '8' && key == '1') infiniteloop();
   if ( key == 's' || key == 'S' ) stop();
   if ( key == 'p' || key == 'P' ) playpause();//End Play-Pause
-  //if ( key == '0' ) AutoPlay();
+  if ( key == '0' ) AutoPlay();
   if ( key == 'n' || key =='N' ) next();
   if ( key == 'b' || key =='B' ) back();
+  if ( key == 'y' || key =='y' ) YEE();
 }//End keyPressedMusic
 //
 void mousePressedMusic() {
@@ -276,14 +277,22 @@ void mousePressedMusic() {
   if (mouseX>=rX5 && mouseX<=rX1 && mouseY>=rY1 && mouseY<=rY3) skipbackward();
   if (mouseX>=skipX1 && mouseX<=skipX5 && mouseY>=skipY1 && mouseY<=skipY3) next();
   if (mouseX>=backX5 && mouseX<=backX1 && mouseY>=backY1 && mouseY<=backY3) back();
-  if (infiniteloopon == true) {
+  if (infiniteloopon == false && singleloopon == false) {
     if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight) infiniteloop();
-  }
-  if (singleloopon == true) {
+    infiniteloopon = true;
+    singleloopon = false;
+  } else if  (singleloopon == false && infiniteloopon == true ) {
     if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight) singleloop();
+    infiniteloopon = false;
+    singleloopon = true;
+  } else {
+    if (mouseX>=loopX9 && mouseX<=loopX9+loopButtonWidth && mouseY>=loopY3 && mouseY<=loopY3-loopButtonHeight);
+    infiniteloopon = false;
+    singleloopon = false;
   }
   if (mouseX>=muteX10 && mouseX<=muteX7 && mouseY>=stopY && mouseY<=stopY+stopHeight) mute();
-}//End mousePressedMusic
+  if (mouseX>=YEEx && mouseX<=YEEx+YEEWidth && mouseY>=YEEy && mouseY<=YEEy+playTextHeight) imageCode(); //End mousePressedMusic
+}
 void concatenationOfMusicFiles() {
   pathway = "Music and Sound Effects/";
   Start_Your_Engines = "Start_Your_Engines.mp3";
@@ -337,8 +346,7 @@ void singleloop() {
   //ERROR: delay stops all player functions, computer doesn't recognize if
   //       song is playing
   songs[currentmp3].loop(0); //perameter is empty or -1
-  infiniteloopon = false;
-  singleloopon = true;
+
 }
 
 void infiniteloop() {
@@ -346,8 +354,6 @@ void infiniteloop() {
   songs[currentmp3].loop(-1); //perameter is empty or -1
   LoopOn= true;
   LoopOn= false;
-  infiniteloopon = true;
-  singleloopon = false;
 }
 
 void playpause() {
@@ -427,45 +433,6 @@ void ShowPause() {
     ShowPlay= true;
   }
 }
-/*if (ShowPause= true){
-    drawPauseButton();
-    if ( PauseOn==true ) { stroke(orange);} else { stroke(cyan);};
-    if (mouseX>=pauseX1 && mouseX<=playX2 && mouseY>=pauseY1 && mouseY<=playY3) stroke(orange);
-  
-    strokeWeight(2.5);
-    line( pauseX1, pauseY1, pauseX3, playY2 );
-    line( pauseX1, playY3, pauseX3, playY2 );
-    line( pauseX3, playY3, pauseX1, playY2 );
-    line( pauseX3, pauseY1, pauseX1, playY2 );
-    line( pauseX2, pauseY2, playX2, playY2 );
-    line( pauseX2, playY3, playX2, playY2 );
-    line( playX2, playY3, pauseX2, playY2 );
-    line( playX2, pauseY2, pauseX2, playY2 );
-    line( pauseX1, playY2, pauseX3, playY2 );
-    line( pauseX2, playY2, playX2, playY2 );
-    strokeWeight(7.5);
-    noFill() ;
-    stroke(red);
-    //rect( pauseX1, pauseY1, pauseWidth, pauseHeight );
-    //rect( pauseX2, pauseY2, pauseWidth, pauseHeight );
-    stroke(cyan);
-  } else {
-    drawPlayButton ();
-    if ( PlayOn==true ) {stroke(orange);} else {stroke(cyan);};
-    if (mouseX>=playX1 && mouseX<=playX2 && mouseY>=playY1 && mouseY<=playY3) stroke(orange);
-    strokeWeight(2.5);
-    line( playX1, playY2, playX2, playY2);
-    line( playX1, playY1, pauseX2, playY2);
-    line( playX1, playY1, pauseX3, playY2);
-    line( playX3, playY3, pauseX2, playY2);
-    line( playX3, playY3, pauseX3, playY2);
-    strokeWeight(7.5);
-    stroke(red);
-    noFill() ;
-    triangle( playX1, playY1, playX2, playY2, playX3, playY3);
-  }
-}
-*/
 
 void AutoPlaymp3() {
   if ( AutoPlayOn ) {
@@ -493,5 +460,7 @@ void AutoPlay(){
     print("Autoplay off");
   }
 }//End Autoplay
-
+void YEE(){
+  imageCode();
+}
 //End Music SubProgram

@@ -4,8 +4,9 @@ PFont titleFont;
 color ink, RedInk=#FF0000, BlackInk=#000000;
 int alignHorizontal, alignVertical; //Display
 String Pausestring = "Pause", Playstring = "Play and Pause", Stopstring = "Stop", SkipForwardstring = "Fast Forward", SkipBackwardstring = "Rewind", Nextstring = "Next MP3", Backstring = "Previous MP3", Loopstring = "Loop", Mutestring = "Mute";
+String YEEstring = "YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
 PFont Font;
-PFont OldEnglishTextMT;
+PFont YEEFont;
 //color red=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, white=#FFFFFF, orange=#FF7F03, darkblue=#000080; //Night Mode Friendly
 //color white=#FFFFFF; //Not Night Mode Friendly 
 //
@@ -15,6 +16,7 @@ void TextSetup() {
   printArray(fontList); //For listing all possible fonts to choose, then createFont
    
   Font = createFont ("Old English Text MT", 25); //Verify font exists
+  YEEFont = createFont ("Snap ITC", 25);
   //OldEnglishTextMT = createFont ("Old English Text MT", 35); //Verify font exists
   /*
   Fonts I will might use;
@@ -101,6 +103,13 @@ void MuteTextDraw( float height, color ink, int alignHorizontal, int alignVertic
   //textSize: textWidth(STRING), rectWidth, startingFontSize
   textSize(TextCalculator(height, Mutestring, muteTextWidth));
   text(Mutestring, muteTextX, muteTextY, muteTextWidth, muteTextHeight);
+  TextReset();
+}// End textDraw
+void YEETextDraw( float height, color ink, int alignHorizontal, int alignVertical, PFont YEEFont, String YEEstring, float YEEx, float YEEy, float YEEWidth, float playTextHeight) {
+  preTextDraw( height, ink, alignHorizontal, alignVertical, YEEFont ); //Passing Par
+  //textSize: textWidth(STRING), rectWidth, startingFontSize
+  textSize(TextCalculator(height, Mutestring, muteTextWidth));
+  text(YEEstring, YEEx, YEEy, YEEWidth, playTextHeight);
   TextReset();
 }// End textDraw
 void TextReset() {

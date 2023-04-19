@@ -6,7 +6,7 @@ void population()
   //float startingY = height * 1/2;
   //float buttonReferentMeasure = width*1/9;
   //float buttonSide = buttonReferentMeasure;
-  ImageVaribles();
+  
   
   float MusicButtonDrawX = width * 1/2;
   float MusicButtonDrawY = height * 1/2;
@@ -14,8 +14,15 @@ void population()
   pauseScaleHeight = 1.0/5.5; //used to change y-axis
   println(mouseX);
   println(mouseY);
-  
-
+  Width = width;
+  Height = height;
+  //Population
+  Width2 = width;
+  Height2 = height;
+  BackgroundimageX = Width2 * 0;
+  BackgroundimageY = Height2 * 0;
+  BackgroundimageWidth = Width2 - 1;
+  BackgroundimageHeight = Height2 - 1;
   pauseWidth = width * pauseScaleWidth;
   pauseX1 = MusicButtonDrawX - pauseWidth - pauseWidth*1/2;
   pauseY1 = MusicButtonDrawY;
@@ -192,19 +199,47 @@ void population()
   muteTextY= muteY4 ;
   muteTextWidth= muteX1-muteX10;
   muteTextHeight= pauseTextHeight;
+  YEEx= backX5;
+  YEEy= 0;
+  YEEWidth = skipX5 - backX5;
 }
 
 void drawMusicBackground() {
-
+  strokeWeight(7.5);
   background(darkblue2);
   stroke(blue);
   //stroke(bluehalfcyan);
   //stroke(darkbluehalfcyan);
   //stroke(darkblue);
+  /*
   line(0, 0, width, height);
   line(width, 0, 0, height);
-  line(width * 1/2, 0, width * 1/2, height);
-  line(0, height * 1/2, width, height * 1/2);
+  line(width * 4/8, 0, width * 4/8, height);
+  line(0, height * 4/8, width, height * 4/8);
+  */
+  
+  line(width * 2/8, 0, width * 6/8, height);
+  line(width * 6/8, 0, width * 2/8, height);
+  line(0, height * 2/8, width, height * 6/8);
+  line(width, height * 2/8, 0, height * 6/8);
+  line(width *3/8, 0, width * 5/8, height);
+  line(width * 5/8, 0, width * 3/8, height);
+  /*
+  line(width * 2/8, 0, width * 5/8, height);
+  line(width * 2/8, 0, width , height * 6/8);
+  line(width * 3/8, 0, width * 6/8, height);
+  line(width * 3/8, 0, width , height * 6/8);
+  */
+  /*
+  line(width * 6/8, 0, width * 3/8, height);
+  line(width * 6/8, 0, 0 , height * 6/8);
+  line(width * 5/8, 0, width * 2/8, height);
+  line(width * 5/8, 0, 0 , height * 6/8);
+  */
+  line(0, height * 2/8, width, height * 6/8);
+  line(0, height * 2/8, width, height * 6/8);
+  line(width, height * 2/8, 0, height * 6/8);
+  line(width, height * 2/8, 0, height * 6/8);
   /*
   line(0, 0, width, height * 1/2);
   line(0, 0, width * 1/2, height);
@@ -522,6 +557,7 @@ void drawButtonText() {
   rect(backTextX, backTextY, backTextWidth, -backTextHeight);
   rect(loopTextX, loopTextY, loopTextWidth, loopTextHeight);
   rect(muteTextX, muteTextY, -muteTextWidth, muteTextHeight);
+  rect(YEEx, YEEy, YEEWidth, playTextHeight);
 }
 /* unused
 void gradiant() {

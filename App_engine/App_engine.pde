@@ -30,6 +30,7 @@ void draw() {
   BackTextDraw(height, RedInk, CENTER, CENTER, Font, Backstring, backTextX, backTextY, backTextWidth, -backTextHeight);
   LoopTextDraw(height, RedInk, CENTER, CENTER, Font, Loopstring, loopTextX,loopTextY, loopTextWidth, loopTextHeight);
   MuteTextDraw(height, RedInk, CENTER, CENTER, Font, Mutestring, backX1, muteTextY, muteTextWidth, muteTextHeight);
+  YEETextDraw(height, RedInk, CENTER, CENTER, YEEFont, YEEstring, YEEx, YEEy, YEEWidth, playTextHeight);
   //drawMusicBackground();
 }//End draw
 //

@@ -1,5 +1,7 @@
 //Global Varibles
-void ImageVaribles () {
+
+//
+
   int Width2 = width, Height2 = height;
   float BackgroundimageX, BackgroundimageY, BackgroundimageWidth, BackgroundimageHeight;
   PImage Pic;
@@ -8,8 +10,9 @@ void ImageVaribles () {
   //Boolean nightMode = false;
   Boolean ImageCenter = false, ImageRightBottom = true; 
   //landscape 480, 360
-  //Width = width;
-  //Height = height;
+  /*
+  Width = width;
+  Height = height;
   //Population
   Width2 = width;
   Height2 = height;
@@ -17,9 +20,10 @@ void ImageVaribles () {
   BackgroundimageY = Height2 * 0;
   BackgroundimageWidth = Width2 - 1;
   BackgroundimageHeight = Height2 - 1;
+  */
   //
-  Pic = loadImage("../Images/0.jpg");
-}
+  //Pic = loadImage("../Images/0.jpg");
+
 
 //Pathway and Files
 /*
@@ -29,11 +33,13 @@ String upFolder= "..";
  String FileName = "0.jpg";
  Pic = loadImage(upFolder+openFolder+Images+openFolder+FileName);
  */
-void Image() {
+
   int PicWidth = 1280; //Original Dimention 1280 or 480
   int PicHeight = 720; //Original Dimention 720 or 360
   int LargerDimension, SmallerDimension;
   float ImageWidthRatio, ImageHeightRatio;
+void imageCode(){
+  Pic = loadImage("../Images/YEE.jpg");
   if ( PicWidth >= PicHeight ) { //TRUE if its Landscape ore square
     LargerDimension = PicWidth;
     SmallerDimension = PicHeight;
@@ -88,13 +94,13 @@ void Image() {
       if (ImageRightBottom==true ) picY_Adjusted = BackgroundimageY + Space*1/2;
     }
   }
-  
+
   //
   //Rectangle layout and Image drawing  to canvas
-  rect( BackgroundimageX, BackgroundimageY, BackgroundimageWidth, BackgroundimageHeight);
+//rect( BackgroundimageX, BackgroundimageY, BackgroundimageWidth, BackgroundimageHeight);
   //if (nightMode==false) tint(128, 255, 255);//gray scale
   //if (nightMode==true)  tint(255, 128, 128); //RGB
-  //image(Pic, BackgroundimageX, BackgroundimageY, BackgroundimageWidth, BackgroundimageHeight);
-  println (BackgroundimageX, BackgroundimageY, PicWidthAdjusted, PicHeightAdjusted);
-  image(Pic, picX_Adjusted, picY_Adjusted, PicWidthAdjusted, PicHeightAdjusted);
+//image(Pic, BackgroundimageX, BackgroundimageY, BackgroundimageWidth, BackgroundimageHeight);
+println (BackgroundimageX, BackgroundimageY, PicWidthAdjusted, PicHeightAdjusted);
+image(Pic, picX_Adjusted, picY_Adjusted, PicWidthAdjusted, PicHeightAdjusted);
 }
