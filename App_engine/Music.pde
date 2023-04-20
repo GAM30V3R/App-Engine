@@ -31,7 +31,7 @@ float skipX1, skipY1, skipX2, skipY2, skipX3, skipY3, skipX4, skipY4, skipX5, sk
 float backX1, backY1, backX2, backY2, backX3, backY3, backX4, backY4, backX5, backButtonWidth, backButtonHeight, backTextX, backTextY, backTextWidth, backTextHeight ;
 float loopX1, loopY1, loopWidth, loopHeight, loopX2, loopY2, loopWidth2, loopHeight2, loopX3, loopY3, loopX4, loopY4, loopX5, loopY5, loopX6, loopY6, loopX7, loopY7, loopX8, loopY8, loopX9, loopY9, loopX10, loopY10, loopX11, loopY11, loopX12, loopY12, loopButtonWidth, loopButtonHeight, loopTextX, loopTextY, loopTextWidth, loopTextHeight ;
 float muteX1, muteY1, muteX2, muteY2, muteX3, muteY3, muteX4, muteY4, muteX5, muteY5, muteX6, muteY6, muteX7, muteY7, muteX8, muteY8, muteX9, muteY9, muteWidth, muteHeight, muteWidth2, muteHeight2, muteX10, muteButtonWidth, muteButtonHeight, muteTextX, muteTextY, muteTextWidth, muteTextHeight ;
-color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, bluehalfcyan=#0080FF, white=#FFFFFF, orange=#FFAA00, darkblue=#000080, darkblue2=#000055, darkbluehalfcyan=#004080  ; //Night Mode Friendly
+color resetcolorNightMode=#FFFF48, red=#FF0000, black=#000000,  cyan=#00FFFF, blue=#0000FF, blue4fifthcyan=#00CCFD, bluehalfcyan=#0080FF, white=#FFFFFF, orange=#FFAA00, darkblue=#000080, darkblue2=#000055, darkbluehalfcyan=#004080  ; //Night Mode Friendly
 color resetcolorDayMode=#FFFFFF; //Not Night Mode Friendly 
 float buttonReferentMeasure = width*1/9.75;
 float buttonSide = buttonReferentMeasure;

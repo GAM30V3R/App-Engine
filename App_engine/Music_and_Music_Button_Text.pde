@@ -3,7 +3,7 @@
 PFont titleFont;
 color ink, RedInk=#FF0000, BlackInk=#000000;
 int alignHorizontal, alignVertical; //Display
-String Pausestring = "Pause", Playstring = "Play and Pause", Stopstring = "Stop", SkipForwardstring = "Fast Forward", SkipBackwardstring = "Rewind", Nextstring = "Next MP3", Backstring = "Previous MP3", Loopstring = "Loop", Mutestring = "Mute";
+String Pausestring = "Pause", Playstring = "Play&Pause", Stopstring = "Stop", SkipForwardstring = "Fast Forward", SkipBackwardstring = "Rewind", Nextstring = "Next", Backstring = "Previous", Loopstring = "Loop", Mutestring = "Mute";
 String YEEstring = "YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
 PFont Font;
 PFont YEEFont;
