@@ -207,10 +207,17 @@ void population()
 void drawMusicBackground() {
   strokeWeight(5);
   background(darkblue2);
-  //stroke(cyan);
+  stroke(cyan);
   //stroke(blue);
-  stroke(bluehalfcyan);
-  //stroke(darkbluehalfcyan);
+  //stroke(bluehalfcyan);
+  stroke(blue4fifthcyan);
+  
+  RandomLines();
+  RandomLines();
+  RandomLines();
+  RandomLines();
+  RandomLines();
+  /* unused
   line(0, 0, width, height);
   line(width, 0, 0, height);
   line(0, height * 4/8, width, height * 4/8);
@@ -253,71 +260,22 @@ void drawMusicBackground() {
   line(0, height * 2/8, width * 5/8, height );
   line(width, height * 2/8, width * 2/8, height );
   line(width, height * 2/8, width * 3/8, height );
-  stroke(blue4fifthcyan);
-  strokeWeight(3);
-    line(0, 0, width, height);
-  line(width, 0, 0, height);
-  line(0, height * 4/8, width, height * 4/8);
-  line(width * 4/8, 0, width * 4/8, height);
-  line(0, 0, width, height * 1/2);
-  line(0, 0, width * 1/2, height);
-  line(width, 0, 0, height * 1/2);
-  line(width, 0, width * 1/2, height);
-  line(0, height, width * 1/2, 0);
-  line(0, height, width , height * 1/2);
-  line(width, height, width * 1/2, 0);
-  line(width, height, 0 , height * 1/2);
-  line(0, 0, width, height * 2/8);
-  line(0, 0, width * 2/8, height);
-  line(width, 0, 0, height * 2/8);
-  line(width, 0, width * 6/8, height);
-  line(0, height, width * 2/8, 0);
-  line(0, height, width, height * 6/8);
-  line(width, height, width * 6/8, 0);
-  line(width, height, 0 , height * 6/8);
-  line(0, height * 4/8, width * 4/8, height);
-  line(0, height * 4/8, width * 4/8, 0);
-  line(width, height * 4/8, width * 4/8, height);
-  line(width, height * 4/8, width * 4/8, 0);
-  line(width * 2/8, 0, width * 6/8, height);
-  line(width * 6/8, 0, width * 2/8, height);
-  line(0, height * 2/8, width, height * 6/8);
-  line(width, height * 2/8, 0, height * 6/8);
-  line(width *3/8, 0, width * 5/8, height);
-  line(width * 5/8, 0, width * 3/8, height);  
-  line(width * 2/8, 0, width * 5/8, height);
-  line(width * 2/8, 0, width , height * 6/8);
-  line(width * 3/8, 0, width * 6/8, height);
-  line(width * 3/8, 0, width , height * 6/8);
-  line(width * 6/8, 0, width * 3/8, height);
-  line(width * 6/8, 0, 0 , height * 6/8);
-  line(width * 5/8, 0, width * 2/8, height);
-  line(width * 5/8, 0, 0 , height * 6/8);
-  line(0, height * 2/8, width * 6/8, height);
-  line(0, height * 2/8, width * 5/8, height );
-  line(width, height * 2/8, width * 2/8, height );
-  line(width, height * 2/8, width * 3/8, height );
-  /*
-  line(0, height * 2/8, width * 3/8, 0);
-  line(0, height * 2/8, width * 2/8, 0 );
-  line(width, height * 2/8, width * 5/8, 0 );
-  line(width, height * 2/8, width * 6/8, 0 );
-  line(0, height * 6/8, width * 3/8, height);
-  line(0, height * 6/8, width * 2/8, height );
-  line(width, height * 6/8, width * 5/8, height );
-  line(width, height * 6/8, width * 6/8, height );
-  
-  
-  line(0, height * 2/8, width * 3/8, height);
-  line(0, height * 2/8, width * 2/8, height );
-  line(width, height * 2/8, width * 5/8, height );
-  line(width, height * 2/8, width * 6/8, height );
-  line(width * 2/8, 0, 0 , height * 6/8);
-  line(width * 3/8, 0, 0 , height * 6/8);
-  line(width * 5/8, 0, width , height * 6/8);
-  line(width * 6/8, 0, width , height * 6/8);
   */
 }//End drawMusicBackground() 
+void RandomLines() {
+  stroke(blue4fifthcyan);
+  strokeWeight(5);
+  line(0, random(0, height), width, random(0, height));
+  line(random(0, width), 0, random(0, width), height);
+  line(0, random(0, height), random(0, width), 0);
+  line(width, random(0, height), random(0, width), height);
+  line(0, random(0, height), random(0, width), height);
+  line(width, random(0, height), random(0, width), 0);
+  line(random(0, width), 0, 0, random(0, height));
+  line(random(0, width), height, width, random(0, height));
+  line(random(0, width), height, 0, random(0, height));
+  line(random(0, width), 0, width, random(0, height));
+}
 
 void drawPauseButton() {
   strokeWeight(7.5);
@@ -325,8 +283,8 @@ void drawPauseButton() {
   rect( pauseX1, pauseY1, pauseWidth, pauseHeight );
   rect( pauseX2, pauseY2, pauseWidth, pauseHeight );
   {
-    stroke(cyan);
-    strokeWeight(3);
+    stroke(red);
+    strokeWeight(4);
     line( pauseX1, pauseY1, pauseX3, playY2 );
     line( pauseX1, playY3, pauseX3, playY2 );
     line( pauseX3, playY3, pauseX1, playY2 );
@@ -351,8 +309,8 @@ void drawStopButton() {
   fill(black);
   rect( stopX, stopY, stopWidth, stopHeight ); //Square
   {
-    stroke(cyan);
-    strokeWeight(3);
+    stroke(bluehalfcyan);
+    strokeWeight(4);
     line( stopX, stopY, stopX3, stopY3);
     line( stopX3, stopY, stopX, stopY3);
     line( stopX, stopY2, stopX3, stopY2);
@@ -378,8 +336,8 @@ void drawPlayButton() {
   fill(black);
   triangle( playX1, playY1, playX2, playY2, playX3, playY3);
   {
-    stroke(cyan);
-    strokeWeight(3);
+    stroke(bluehalfcyan);
+    strokeWeight(4);
     line( playX1, playY2, playX2, playY2);
     line( playX1, playY1, pauseX2, playY2);
     line( playX1, playY1, pauseX3, playY2);
@@ -399,8 +357,8 @@ void drawFFButton() {
    fill(black);
    triangle( ffX4, ffY4, ffX5, ffY5, ffX6, ffY6) ;
    {
-     stroke(cyan);
-     strokeWeight(3);
+     stroke(bluehalfcyan);
+     strokeWeight(4);
      line( ffX4, ffY4, ffX2, ffY2);
      line( ffX6, ffY6, ffX2, ffY2);
      line( ffX1, ffY2, ffX5, ffY5);
@@ -410,8 +368,8 @@ void drawFFButton() {
 
    triangle( ffX1, ffY1, ffX2, ffY2, ffX3, ffY3) ;
    {
-     stroke(cyan);
-     strokeWeight(3);
+     stroke(bluehalfcyan);
+     strokeWeight(4);
      line( ffX1, ffY1, ffX4, ffY5);
      line( ffX3, ffY3, ffX4, ffY5);
      line( ffX1, ffY2, ffX2, ffY2);
@@ -432,8 +390,8 @@ void drawRButton() {
    fill(black);
    triangle( rX4 , rY4, rX5, rY5, rX6, rY6);
    {
-     stroke(cyan);
-     strokeWeight(3);
+     stroke(bluehalfcyan);
+     strokeWeight(4);
      line( rX4, rY4, rX2, rY2);
      line( rX6, rY6, rX2, rY2);
      line( rX4, rY2, rX5, rY5);
@@ -442,8 +400,8 @@ void drawRButton() {
    }
    triangle( rX1, rY1, rX2, rY2, rX3, rY3);
    {
-     stroke(cyan);
-     strokeWeight(3);
+     stroke(bluehalfcyan);
+     strokeWeight(4);
      line( rX1, rY1, rX4, rY5);
      line( rX3, rY3, rX4, rY5);
      line( rX1, rY2, rX2, rY2);
@@ -464,8 +422,8 @@ void drawSkipButton() {
   triangle (skipX1, skipY1, skipX2, skipY2, skipX3, skipY3);
   rect (skipX4, skipY4, pauseWidth, pauseHeight);
   {
-    stroke(cyan);
-    strokeWeight(3);
+    stroke(bluehalfcyan);
+    strokeWeight(4);
     line( skipX1, skipY2, skipX5, skipY2);
     line( skipX2, skipY2, skipX5, skipY1);
     line( skipX2, skipY2, skipX5, skipY3);
@@ -488,8 +446,8 @@ void drawBackButton() {
   triangle (backX1, backY1, backX2, backY2, backX3, backY3);
   rect (backX4, backY4, -pauseWidth, pauseHeight);
   {
-    stroke(cyan);
-    strokeWeight(3);
+    stroke(bluehalfcyan);
+    strokeWeight(4);
     line( backX1, backY2, backX5, backY2);
     line( backX2, backY2, backX5, backY1);
     line( backX2, backY2, backX5, backY3);
@@ -515,8 +473,8 @@ void drawLoopButton() {
   fill(black);
   triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
   {
-    stroke(cyan);
-    strokeWeight(3);
+    stroke(bluehalfcyan);
+    strokeWeight(4);
     line( loopX1, loopY7, loopX8, loopY8);
     line( loopX8, loopY8, loopX1, loopY9);
     line( loopX7, loopY8, loopX1, loopY6);
@@ -558,8 +516,8 @@ void drawLoopButton() {
   fill(black);
   triangle ( loopX3, loopY3, loopX4, loopY4, loopX5, loopY5);
   {
-    stroke(cyan);
-    strokeWeight(3);
+    stroke(bluehalfcyan);
+    strokeWeight(4);
     line( loopX1, loopY4, loopX4, loopY4);
     strokeWeight(7.5);
     stroke(red);
@@ -581,8 +539,8 @@ void drawMuteButton() {
   line ( muteX8, muteY8, muteX9, muteY9);
   fill(resetcolorDayMode) ; //Change this to ternary
   {
-    stroke(cyan);
-    strokeWeight(3);
+    stroke(bluehalfcyan);
+    strokeWeight(4);
     //line( muteX10, muteY2, muteX1, muteY1);
     //line( muteX10, muteY2, muteX3, muteY3);
     //line( muteX10, muteY2, muteX4, muteY4);
@@ -611,7 +569,7 @@ void drawMuteButton() {
 void drawButtonText() {
   stroke(blue);
   strokeWeight(3);
-  noFill();
+  fill(darkbluehalfcyan);
   rect(pauseTextX, pauseTextY, pauseTextWidth, -pauseTextHeight);
   rect(playTextX, playTextY, playTextWidth, -playTextHeight);
   //rect();
